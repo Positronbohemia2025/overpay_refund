@@ -1,0 +1,49 @@
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding-top: var(--space-7);
+}
+
+.headline {
+  max-width: 18ch;
+}
+
+.subhead {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+  max-width: 60ch;
+}
+
+.trust {
+  font-size: var(--text-sm);
+  color: var(--color-text-subtle);
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+.uploadPanel {
+  margin-top: var(--space-5);
+}
+
+.uploadHeading {
+  margin-bottom: var(--space-5);
+  font-size: var(--text-xl);
+}
+
+.uploadHeading:focus-visible {
+  box-shadow: var(--focus-ring);
+}
+
+.belowFold {
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  box-shadow: inset 0 1px 0 var(--color-border-soft);
+}

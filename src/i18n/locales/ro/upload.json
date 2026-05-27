@@ -1,0 +1,24 @@
+{
+  "fileLabel": "Alege contractul (PDF, DOCX, JPG sau PNG)",
+  "fileHint": "Acceptăm fișiere PDF, DOCX, JPG și PNG, de cel mult {{max}} MB.",
+  "noFile": "Niciun fișier ales",
+  "consentAnonymized": "Sunt de acord ca documentul să fie anonimizat și analizat automat.",
+  "consentTerms": "Sunt de acord cu termenii serviciului.",
+  "submit": "Trimite spre verificare",
+  "anotherFile": "Încarcă alt contract",
+  "status": {
+    "selected": "Fișier selectat: {{name}}.",
+    "validating": "Se verifică fișierul.",
+    "uploading": "Se încarcă fișierul.",
+    "accepted": "Documentul a fost primit și pus în coada de analiză."
+  },
+  "reject": {
+    "unsupported_format": "Formatul fișierului nu este acceptat. Acceptăm PDF, DOCX, JPG și PNG.",
+    "file_too_large": "Fișierul este prea mare. Dimensiunea maximă este de {{max}} MB.",
+    "empty_file": "Fișierul pare gol. Încearcă din nou cu alt document.",
+    "missing_consent": "Bifează ambele căsuțe pentru a putea trimite documentul.",
+    "network_error": "Conexiunea a eșuat. Verifică internetul și încearcă din nou.",
+    "server_error": "A apărut o problemă la trimitere. Încearcă din nou mai târziu.",
+    "rate_limited": "Au fost prea multe încercări. Așteaptă puțin și încearcă din nou."
+  }
+}

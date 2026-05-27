@@ -24,8 +24,9 @@ export function validateDisclosures(d: DisclosureSet): DisclosureIssue[] {
     if (!isPresent(value)) issues.push({ field, problem: 'missing' });
   };
 
-  // Legal entity (FR-029, FR-042, SC-003)
+  // Legal entity (FR-022, FR-029, FR-042, SC-003)
   require('legalEntity.registeredName', d.legalEntity.registeredName);
+  require('legalEntity.nature', d.legalEntity.nature);
   require('legalEntity.registrationNumber', d.legalEntity.registrationNumber);
   require('legalEntity.contactEmail', d.legalEntity.contactEmail);
   require('legalEntity.postalAddress', d.legalEntity.postalAddress);

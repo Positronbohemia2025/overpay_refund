@@ -1,0 +1,25 @@
+.section {
+  padding-block: var(--space-9);
+}
+
+.sunken {
+  background-color: var(--color-surface-sunken);
+}
+
+.inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding-inline: var(--space-5);
+}
+
+.innerNarrow {
+  max-width: var(--content-narrow);
+  margin: 0 auto;
+  padding-inline: var(--space-5);
+}
+
+@media (max-width: 36rem) {
+  .section {
+    padding-block: var(--space-7);
+  }
+}

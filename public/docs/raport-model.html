@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raport-model — exemplu</title>
+    <style>
+      :root {
+        color-scheme: light;
+      }
+      body {
+        font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        color: #1f2730;
+        background: #fbfbf9;
+        line-height: 1.6;
+        max-width: 44rem;
+        margin: 0 auto;
+        padding: 2.5rem 1.25rem 4rem;
+      }
+      h1 {
+        margin-bottom: 0.25rem;
+      }
+      .badge {
+        display: inline-block;
+        font-size: 0.8rem;
+        color: #525e6b;
+        background: #f4f5f3;
+        padding: 0.15rem 0.6rem;
+        border-radius: 999px;
+        margin-bottom: 0.75rem;
+      }
+      h2 {
+        font-size: 1.25rem;
+        margin-top: 2rem;
+      }
+      .clause {
+        background: #fff;
+        border-radius: 16px;
+        padding: 1rem 1.25rem;
+        box-shadow: 0 2px 8px rgb(31 39 48 / 6%);
+        margin-bottom: 0.75rem;
+      }
+      .clause .head {
+        display: flex;
+        justify-content: space-between;
+        gap: 0.75rem;
+        font-weight: 600;
+      }
+      .status {
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: #525e6b;
+      }
+      .unlawful {
+        color: #9a2c2c;
+      }
+      .reg {
+        font-size: 0.9rem;
+        color: #6b7682;
+      }
+      ul.calc {
+        padding-left: 1.25rem;
+      }
+      @media print {
+        body {
+          background: #fff;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <span class="badge">Exemplu — date fictive</span>
+    <h1>Raport-model</h1>
+    <p>Acesta este un exemplu de raport, cu date fictive, care arată ce primești după verificare.</p>
+
+    <h2>Analiză clauză cu clauză</h2>
+    <div class="clause">
+      <div class="head">
+        <span>Dobândă anuală efectivă (DAE)</span><span class="status unlawful">Probabil nelegal</span>
+      </div>
+      <p>DAE reală depășește 300% prin comisioane separate, peste limita admisă pentru acest tip de credit.</p>
+      <p class="reg">Reglementare: Legea privind contractele de credit pentru consumatori</p>
+    </div>
+    <div class="clause">
+      <div class="head">
+        <span>Comision de administrare lunar</span><span class="status">Discutabil</span>
+      </div>
+      <p>Comisionul nu este explicat în contract și nu apare în calculul DAE prezentat.</p>
+    </div>
+    <div class="clause">
+      <div class="head">
+        <span>Asigurare „opțională”</span><span class="status unlawful">Probabil nelegal</span>
+      </div>
+      <p>Asigurarea a fost adăugată fără un acord separat și clar al împrumutatului.</p>
+      <p class="reg">Reglementare: Norme privind consimțământul informat</p>
+    </div>
+    <div class="clause">
+      <div class="head">
+        <span>Penalitate de întârziere</span><span class="status">Probabil conform</span>
+      </div>
+      <p>Penalitatea se încadrează în limitele permise.</p>
+    </div>
+
+    <h2>Estimarea sumei plătite în plus</h2>
+    <p>Calculul este arătat, nu doar rezultatul:</p>
+    <ul class="calc">
+      <li>Sumă împrumutată: 5 000 MDL</li>
+      <li>Total plătit până acum: 11 200 MDL</li>
+      <li>Total legal estimat (dobândă + comisioane permise): 8 900 MDL</li>
+      <li><strong>Diferență estimată plătită în plus: 2 300 MDL</strong></li>
+    </ul>
+
+    <h2>Despre termene</h2>
+    <p>
+      Faptul că împrumutul a fost luat acum câțiva ani nu închide neapărat opțiunile. Termenele depind
+      de tipul cererii; un profesionist poate confirma situația ta.
+    </p>
+
+    <h2>Pasul recomandat</h2>
+    <p>
+      Pe baza acestui exemplu, pasul recomandat este o scrisoare către organismul de reglementare,
+      însoțită de calculul de mai sus. Raportul tău real va include opțiunile potrivite cazului tău.
+    </p>
+  </body>
+</html>

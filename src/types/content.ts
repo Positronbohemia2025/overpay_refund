@@ -21,6 +21,8 @@ export interface Locale {
 /** FR-029, FR-042, SC-003 — all fields required or the build fails. */
 export interface LegalEntity {
   registeredName: string;
+  /** The kind of entity (e.g. "societate cu răspundere limitată", NGO) — FR-022. */
+  nature: string;
   jurisdiction: 'Moldova';
   registrationNumber: string;
   contactEmail: string;

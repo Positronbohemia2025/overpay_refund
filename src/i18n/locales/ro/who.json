@@ -1,1 +1,26 @@
-{}
+{
+  "title": "Cine suntem și cum ne finanțăm",
+  "whoBuilt": {
+    "title": "Cine a construit serviciul",
+    "intro": "Serviciul este construit împreună cu persoane și organizații cu acreditări verificabile.",
+    "roleLabel": "Rol:",
+    "credentialLabel": "Acreditare:",
+    "aboutLink": "Citește mai mult despre echipă"
+  },
+  "legalEntity": {
+    "title": "Entitatea juridică",
+    "registeredNameLabel": "Denumire înregistrată:",
+    "jurisdictionLabel": "Jurisdicție:",
+    "registrationLabel": "Număr de înregistrare:",
+    "contactLabel": "Contact:"
+  },
+  "funding": {
+    "title": "Cum ne finanțăm",
+    "free": "Verificarea contractului este gratuită, susținută prin {{fundingSource}}.",
+    "contingency": "Dacă, după raport, alegi serviciul opțional de recuperare, acesta percepe un comision de succes de {{fee}} din sumele recuperate, printr-un acord separat. Recuperarea se face prin scrisori către organismele de reglementare sau printr-un proces legal. Scrisorile și demersurile se trimit în numele tău, sub licența unor juriști."
+  },
+  "whatWeAreNot": {
+    "title": "Ce nu suntem",
+    "body": "Nu suntem un serviciu de consolidare a datoriilor, un serviciu de negociere a datoriilor și nici o casă de avocatură. Acționăm sub licența unor juriști licențiați. Verificarea contractului este gratuită."
+  }
+}

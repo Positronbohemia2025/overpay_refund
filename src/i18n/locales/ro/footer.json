@@ -1,1 +1,10 @@
-{}
+{
+  "entityLine": "{{entity}} · Republica Moldova · număr de înregistrare {{registration}}",
+  "contactLabel": "Contact:",
+  "addressLabel": "Adresă:",
+  "regulatoryLabel": "Statut de reglementare:",
+  "linksTitle": "Informații",
+  "languagesTitle": "Limbi disponibile",
+  "disclaimer": "Analiza oferă orientare, nu un verdict juridic. Pentru a acționa, poate fi nevoie de un profesionist calificat.",
+  "closingLine": "Când ești pregătit, încarcă-ți contractul."
+}

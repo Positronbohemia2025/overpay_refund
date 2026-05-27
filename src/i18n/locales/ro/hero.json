@@ -1,1 +1,7 @@
-{}
+{
+  "headline": "Află dacă ai fost taxat cu dobânzi sau comisioane nelegale la creditul tău.",
+  "subhead": "Serviciul analizează contractele de microcreditare pentru dobânzi nelegale, comisioane nedezvăluite și clauze care îți pot da dreptul la o rambursare. Analiza este realizată de un sistem automat, iar contractul este anonimizat înainte de a fi examinat. Rezultatul îți aparține.",
+  "trustSignal": "Serviciul funcționează sub coordonarea unor juriști licențiați din Republica Moldova.",
+  "belowFold": "Serviciul este oferit de {{entity}}, {{nature}} înregistrată în Republica Moldova. Verificarea contractului este gratuită și este susținută prin {{funding}}.",
+  "uploadHeading": "Încarcă-ți contractul"
+}

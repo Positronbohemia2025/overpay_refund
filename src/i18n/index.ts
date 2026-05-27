@@ -19,6 +19,7 @@ import roWhy from './locales/ro/why.json';
 import roReport from './locales/ro/report.json';
 import roFaq from './locales/ro/faq.json';
 import roOfframp from './locales/ro/offramp.json';
+import roUpload from './locales/ro/upload.json';
 
 export const NAMESPACES = [
   'common',
@@ -31,6 +32,7 @@ export const NAMESPACES = [
   'report',
   'faq',
   'offramp',
+  'upload',
 ] as const;
 
 export const resources = {
@@ -45,6 +47,7 @@ export const resources = {
     report: roReport,
     faq: roFaq,
     offramp: roOfframp,
+    upload: roUpload,
   },
 } as const;
 

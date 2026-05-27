@@ -26,6 +26,8 @@
 
   --color-dusty-blue: #5b7089; /* accentless secondary neutral for diagrams/labels */
 
+  --color-danger: #9a2c2c; /* error/validation text only; AA on surface. Not the accent. */
+
   /* --- THE single accent (calm teal) --- */
   --accent: #0f766e;
   --accent-hover: color-mix(in srgb, var(--accent) 86%, black);

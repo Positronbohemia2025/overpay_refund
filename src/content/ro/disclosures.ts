@@ -14,6 +14,7 @@ import { PATHS } from '../../routes/paths';
 export const disclosures: DisclosureSet = {
   legalEntity: {
     registeredName: operatorTodo('denumirea juridică înregistrată'),
+    nature: operatorTodo('natura entității (de exemplu, SRL sau organizație neguvernamentală)'),
     jurisdiction: 'Moldova',
     registrationNumber: operatorTodo('numărul de înregistrare (IDNO)'),
     contactEmail: operatorTodo('adresa de e-mail de contact'),
