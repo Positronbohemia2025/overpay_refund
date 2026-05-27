@@ -25,14 +25,14 @@ description: "Task list for Loan-Analysis Landing Page implementation"
 
 **Purpose**: Project initialization and tooling
 
-- [ ] T001 Initialize Vite + React 19 + TypeScript project at repo root: `package.json` (deps: react, react-dom, react-router-dom, i18next, react-i18next; devDeps: vite, @vitejs/plugin-react, vitest, @testing-library/react, @testing-library/jest-dom, vitest-axe, @playwright/test, eslint, typescript-eslint, eslint-plugin-jsx-a11y, stylelint, prettier), `index.html`, `vite.config.ts`, `tsconfig.json` (strict mode)
-- [ ] T002 [P] Configure ESLint (typescript-eslint + eslint-plugin-jsx-a11y) and Prettier in `eslint.config.js` and `.prettierrc`
-- [ ] T003 [P] Configure stylelint for CSS Modules in `stylelint.config.cjs`
-- [ ] T004 [P] Configure Vitest + React Testing Library + axe in `vitest.config.ts` and `tests/setup.ts`
-- [ ] T005 [P] Configure Playwright in `playwright.config.ts`
-- [ ] T006 Create source/test/asset directory structure: `src/{routes,sections,components,i18n,content,styles,lib,types}`, `tests/{unit,a11y,content,e2e}`, `public/{fonts,docs}`
-- [ ] T007 [P] Add environment handling: `.env.example` (`VITE_INTAKE_BASE_URL`, `VITE_MAX_UPLOAD_BYTES`) and `src/lib/env.ts`
-- [ ] T008 [P] Scaffold content-lint scripts in `tests/content/` (tone, faq-format, reading-level, claims-register) and wire `lint:content` script in `package.json`
+- [X] T001 Initialize Vite + React 19 + TypeScript project at repo root: `package.json` (deps: react, react-dom, react-router-dom, i18next, react-i18next; devDeps: vite, @vitejs/plugin-react, vitest, @testing-library/react, @testing-library/jest-dom, vitest-axe, @playwright/test, eslint, typescript-eslint, eslint-plugin-jsx-a11y, stylelint, prettier), `index.html`, `vite.config.ts`, `tsconfig.json` (strict mode)
+- [X] T002 [P] Configure ESLint (typescript-eslint + eslint-plugin-jsx-a11y) and Prettier in `eslint.config.js` and `.prettierrc`
+- [X] T003 [P] Configure stylelint for CSS Modules in `stylelint.config.cjs`
+- [X] T004 [P] Configure Vitest + React Testing Library + axe in `vitest.config.ts` and `tests/setup.ts`
+- [X] T005 [P] Configure Playwright in `playwright.config.ts`
+- [X] T006 Create source/test/asset directory structure: `src/{routes,sections,components,i18n,content,styles,lib,types}`, `tests/{unit,a11y,content,e2e}`, `public/{fonts,docs}`
+- [X] T007 [P] Add environment handling: `.env.example` (`VITE_INTAKE_BASE_URL`, `VITE_MAX_UPLOAD_BYTES`) and `src/lib/env.ts`
+- [X] T008 [P] Scaffold content-lint scripts in `tests/content/` (tone, faq-format, reading-level, claims-register) and wire `lint:content` script in `package.json`
 
 ---
 

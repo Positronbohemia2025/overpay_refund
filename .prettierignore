@@ -1,0 +1,9 @@
+dist
+build
+coverage
+playwright-report
+test-results
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+public/fonts
