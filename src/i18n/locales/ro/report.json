@@ -1,1 +1,20 @@
-{}
+{
+  "title": "Ce conține raportul și ce urmează",
+  "deliverableTitle": "Ce conține raportul",
+  "deliverableIntro": "Raportul este un document concret, cu patru părți:",
+  "statusTitle": "Analiză clauză cu clauză",
+  "statusBody": "Fiecare clauză este marcată drept probabil conformă, discutabilă sau probabil nelegală, cu reglementarea citată acolo unde se aplică.",
+  "overpaymentTitle": "Estimarea sumei plătite în plus",
+  "overpaymentBody": "Estimezi cât ai plătit în plus, iar calculul este arătat, nu doar rezultatul.",
+  "timingTitle": "Notă despre termene",
+  "nextStepTitle": "Pasul recomandat",
+  "afterTitle": "Ce se întâmplă după raport",
+  "outcomes": {
+    "likely_unlawful": "Dacă se găsesc taxe probabil nelegale",
+    "ambiguous": "Dacă rezultatele nu sunt clare",
+    "nothing_found": "Dacă nu se găsește nimic nelegal"
+  },
+  "costLabel": "Cost:",
+  "payeeLabel": "Cui îi revin banii:",
+  "humanReviewLabel": "Verificare umană:"
+}
