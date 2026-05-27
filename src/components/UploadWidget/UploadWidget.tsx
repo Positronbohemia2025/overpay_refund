@@ -42,10 +42,8 @@ export default function UploadWidget({ locale = 'ro' }: { locale?: string }) {
     setReason(null);
     if (!file) {
       setStatus('idle');
-      setFileName(null);
       return;
     }
-    setFileName(file.name);
     setStatus('fileSelected');
     announce(t('status.selected', { name: file.name }));
   };
@@ -86,7 +84,6 @@ export default function UploadWidget({ locale = 'ro' }: { locale?: string }) {
 
   const reset = () => {
     setStatus('idle');
-    setFileName(null);
     setReason(null);
     setAnonymized(false);
     setTerms(false);
