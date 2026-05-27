@@ -42,21 +42,21 @@ description: "Task list for Loan-Analysis Landing Page implementation"
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T009 [P] Define design tokens in `src/styles/tokens.css`: soft neutral palette + exactly ONE accent color; radii scale 12–20px; soft shadows; type scale (body 16–18px); spacing scale (FR-009, FR-010, FR-011)
-- [ ] T010 [P] Base styles in `src/styles/reset.css` and `src/styles/global.css`: base typography, `prefers-reduced-motion` handling, visible focus-visible states using the accent token (FR-013, FR-016)
-- [ ] T011 [P] Self-host Inter subset (latin + latin-ext for ș/ț) in `public/fonts/`, add `@font-face` + preload of primary weight in `index.html` (no font CDN)
-- [ ] T012 [P] Shared TypeScript types in `src/types/` for the content schema (Locale, disclosures, AbusePattern, FaqItem, ReportStructure, AfterReportPath, OffRampArtifact) and the UploadSubmission state machine, per data-model.md
-- [ ] T013 i18n setup in `src/i18n/index.ts` (i18next init, `ro` default + fallback) and a locale registry carrying `reviewedByNativeSpeaker` (FR-054) — depends on T012
-- [ ] T014 App shell in `src/main.tsx` and `src/App.tsx`: React Router, page layout, mount SkipLink and the LiveRegion provider
-- [ ] T015 Router skeleton in `src/routes/`: stub routes for `Home`, `SampleReport`, `About`, `DataHandling`, `Methodology`, `Terms`, `Accessibility` — depends on T014
-- [ ] T016 [P] `Button` primitive (primary=accent, secondary=subordinate) in `src/components/Button/` + `.module.css` — depends on T009
-- [ ] T017 [P] `Panel` primitive (rounded, soft shadow, no hard border) in `src/components/Panel/` + `.module.css` — depends on T009
-- [ ] T018 [P] `Disclosure` primitive (accessible expand/collapse) in `src/components/Disclosure/` + `.module.css` — depends on T009
-- [ ] T019 [P] `SkipLink` primitive in `src/components/SkipLink/` + `.module.css`
-- [ ] T020 [P] `LiveRegion` aria-live announcer in `src/components/LiveRegion/` + `.module.css`
-- [ ] T021 [P] `LanguagePicker` primitive in `src/components/LanguagePicker/` + `.module.css` — depends on T013
-- [ ] T022 Typed disclosure content slots in `src/content/ro/disclosures.ts` (LegalEntity, FundingModel, ResponsibleParty[], ModelDisclosure, PrivacyDisclosure) with required-field types and `TODO(operator)` placeholders — depends on T012
-- [ ] T023 Build-time content validation in `tests/content/` asserting data-model gates: required disclosure slots present, exactly one accent token, published locales all `reviewedByNativeSpeaker` — depends on T022
+- [X] T009 [P] Define design tokens in `src/styles/tokens.css`: soft neutral palette + exactly ONE accent color; radii scale 12–20px; soft shadows; type scale (body 16–18px); spacing scale (FR-009, FR-010, FR-011)
+- [X] T010 [P] Base styles in `src/styles/reset.css` and `src/styles/global.css`: base typography, `prefers-reduced-motion` handling, visible focus-visible states using the accent token (FR-013, FR-016)
+- [X] T011 [P] Self-host Inter subset (latin + latin-ext for ș/ț) in `public/fonts/`, add `@font-face` + preload of primary weight in `index.html` (no font CDN)
+- [X] T012 [P] Shared TypeScript types in `src/types/` for the content schema (Locale, disclosures, AbusePattern, FaqItem, ReportStructure, AfterReportPath, OffRampArtifact) and the UploadSubmission state machine, per data-model.md
+- [X] T013 i18n setup in `src/i18n/index.ts` (i18next init, `ro` default + fallback) and a locale registry carrying `reviewedByNativeSpeaker` (FR-054) — depends on T012
+- [X] T014 App shell in `src/main.tsx` and `src/App.tsx`: React Router, page layout, mount SkipLink and the LiveRegion provider
+- [X] T015 Router skeleton in `src/routes/`: stub routes for `Home`, `SampleReport`, `About`, `DataHandling`, `Methodology`, `Terms`, `Accessibility` — depends on T014
+- [X] T016 [P] `Button` primitive (primary=accent, secondary=subordinate) in `src/components/Button/` + `.module.css` — depends on T009
+- [X] T017 [P] `Panel` primitive (rounded, soft shadow, no hard border) in `src/components/Panel/` + `.module.css` — depends on T009
+- [X] T018 [P] `Disclosure` primitive (accessible expand/collapse) in `src/components/Disclosure/` + `.module.css` — depends on T009
+- [X] T019 [P] `SkipLink` primitive in `src/components/SkipLink/` + `.module.css`
+- [X] T020 [P] `LiveRegion` aria-live announcer in `src/components/LiveRegion/` + `.module.css`
+- [X] T021 [P] `LanguagePicker` primitive in `src/components/LanguagePicker/` + `.module.css` — depends on T013
+- [X] T022 Typed disclosure content slots in `src/content/ro/disclosures.ts` (LegalEntity, FundingModel, ResponsibleParty[], ModelDisclosure, PrivacyDisclosure) with required-field types and `TODO(operator)` placeholders — depends on T012
+- [X] T023 Build-time content validation in `tests/content/` asserting data-model gates: required disclosure slots present, exactly one accent token, published locales all `reviewedByNativeSpeaker` — depends on T022
 
 **Checkpoint**: Design system, shell, i18n, primitives, and content schema ready — user stories can begin
 

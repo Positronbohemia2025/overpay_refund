@@ -1,19 +1,14 @@
-import { createContext, useCallback, useContext, useMemo, useRef, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import type { ReactNode } from 'react';
+import { LiveRegionContext } from './useAnnounce';
 import styles from './LiveRegion.module.css';
 
 /**
  * App-level polite aria-live announcer (T020 / FR-039, SC-008).
- * Components call announce() to speak status changes (e.g. upload progress) to
- * assistive technology without moving focus. A single shared region avoids
- * multiple competing live regions.
+ * Components call announce() (via useAnnounce) to speak status changes — e.g.
+ * upload progress — to assistive technology without moving focus. A single
+ * shared region avoids multiple competing live regions.
  */
-interface LiveRegionApi {
-  announce: (message: string) => void;
-}
-
-const LiveRegionContext = createContext<LiveRegionApi | null>(null);
-
 export function LiveRegionProvider({ children }: { children: ReactNode }) {
   const [message, setMessage] = useState('');
   const clearTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -35,12 +30,4 @@ export function LiveRegionProvider({ children }: { children: ReactNode }) {
       </div>
     </LiveRegionContext.Provider>
   );
-}
-
-export function useAnnounce(): (message: string) => void {
-  const ctx = useContext(LiveRegionContext);
-  if (!ctx) {
-    throw new Error('useAnnounce must be used within a LiveRegionProvider');
-  }
-  return ctx.announce;
 }

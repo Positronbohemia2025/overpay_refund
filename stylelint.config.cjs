@@ -19,6 +19,14 @@ module.exports = {
     // We rely on the design-token color set, not literal hex, in component modules.
     'color-no-hex': null,
     'declaration-block-no-redundant-longhand-properties': null,
+    // Preserve font-family proper nouns (Arial, Helvetica, Segoe UI, Inter, Roboto).
+    'value-keyword-case': null,
+    // We use max-width/max-* prefix notation for broad browser support.
+    'media-feature-range-notation': 'prefix',
+    // Compact, intentional token grouping — not enforcing blank lines.
+    'custom-property-empty-line-before': null,
+    'rule-empty-line-before': null,
+    'declaration-empty-line-before': null,
   },
   ignoreFiles: ['dist/**', 'coverage/**', 'node_modules/**'],
 };
