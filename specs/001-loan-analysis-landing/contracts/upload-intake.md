@@ -54,6 +54,7 @@ Create a new analysis submission.
 
 ## Privacy & handling rules (page-side guarantees)
 
+- Baseline: the raw contract is transmitted over TLS and redacted server-side before analysis. If client-side pre-redaction is added later for supported formats, the request carries `client_redacted: true` and a redacted payload, and the §5 copy is updated to match; the page never implies on-device redaction otherwise.
 - The file is held only in memory and sent once over TLS; the page never persists it (consistent with §5).
 - No PII is placed in the URL, query string, or any client log.
 - The lender is never contacted, and no further action is taken, by virtue of this submission (FR-037). Any recovery action requires the separate, explicit recovery agreement (out of scope here).

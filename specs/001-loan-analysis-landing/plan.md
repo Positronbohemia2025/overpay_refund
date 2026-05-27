@@ -84,6 +84,7 @@ overpay/
 │   │   ├── ContractHandling/
 │   │   ├── ReportAndAfter/
 │   │   ├── Faq/
+│   │   ├── OffRamp/               # Phase 3: sample report / guide / newsletter alternatives
 │   │   └── SiteFooter/
 │   ├── components/                # shared primitives, each with a .module.css
 │   │   ├── Button/                # primary (accent) + secondary variants
@@ -92,7 +93,8 @@ overpay/
 │   │   ├── SkipLink/
 │   │   ├── LiveRegion/            # aria-live announcer (upload status)
 │   │   ├── LanguagePicker/
-│   │   └── UploadWidget/          # THE hydrated island — lazy-loaded
+│   │   ├── Newsletter/            # Phase 3 newsletter signup
+│   │   └── UploadWidget/          # lazy-loaded interactive component
 │   ├── i18n/
 │   │   ├── index.ts               # i18next init
 │   │   └── locales/ro/            # JSON catalogs: common, hero, sections, faq, disclosures
@@ -105,6 +107,7 @@ overpay/
 │   ├── lib/
 │   │   ├── uploadClient.ts        # multipart POST to intake endpoint (contract)
 │   │   ├── validateUpload.ts      # client-side type/size checks
+│   │   ├── newsletterClient.ts    # POST to newsletter endpoint (Phase 3 contract)
 │   │   └── env.ts                 # VITE_INTAKE_BASE_URL etc.
 │   └── types/                     # shared TS types (content schema, upload state)
 ├── tests/

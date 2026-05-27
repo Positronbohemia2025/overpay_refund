@@ -29,7 +29,7 @@ All technical-context unknowns are resolved below. The stack (React + Vite + Typ
 
 ## 5. Upload widget (the one island)
 
-- **Decision**: A native `<input type="file">` wrapped in a small custom component + hook. Client-side validation of type and size, an `aria-live` status region announcing states ("Reading clauses", "Checking interest rates"), and a multipart POST to the external intake endpoint (see `contracts/upload-intake.md`). Lazy-loaded and code-split so it does not affect first paint.
+- **Decision**: A native `<input type="file">` wrapped in a small custom component + hook. Client-side validation of type and size, an `aria-live` status region announcing the client-controlled stages (selected → validating → uploading → received), and a multipart POST to the external intake endpoint (see `contracts/upload-intake.md`). Lazy-loaded and code-split so it does not affect first paint.
 - **Rationale**: Meets FR-038–FR-040 and the screen-reader status requirement (FR-039, SC-008) with minimal JS. The analysis backend is out of scope, so the widget's responsibility ends at a validated, consented handoff.
 - **Alternatives considered**: Dropzone/upload libraries (rejected: bundle weight for behavior the File API already provides), full form libraries like React Hook Form (rejected: overkill for one file + two consent checkboxes).
 

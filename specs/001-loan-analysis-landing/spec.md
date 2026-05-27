@@ -19,6 +19,7 @@
 - Q: The extended brief's section 4 says "We do not take a percentage of any refund," contradicting the contingency-fee answer above. Which governs? → A: The contingency-fee model governs. The section-4 line "We do not take a percentage of any refund" is **overridden**; section 4 instead discloses the contingency fee honestly. The non-goal "Not a lead-gen funnel for paid legal services" is **reframed**: the free check and self-serve options stand alone, and the optional paid recovery service is disclosed, not hidden.
 - Q: How should the work be structured for phased delivery? → A: One spec (this file) restructured into three independently shippable phases.
 - Q: Which languages, native-speaker reviewed? → A: Romanian only for now. The architecture must support adding languages later; any language added must be reviewed by native speakers, never auto-translated.
+- Q: Where does anonymization happen? → A: Server-side, after an encrypted upload and before analysis (the committed baseline). Client-side in-browser redaction was preferred but is not reliable across all accepted formats (scans/photos) and a server-side path is required regardless; it is recorded as a future enhancement for formats where it is reliable. §3/§5 copy must describe the actual path and never imply on-device redaction unless it is actually performed.
 
 ## Phased Delivery
 
@@ -127,7 +128,7 @@ A skeptical reader finds plain answers to the questions they actually ask first.
 ### Phase 1 — How it works (§3)
 
 - **FR-023**: The "How it works" section MUST present three steps; each step MUST state what happens, who or what performs it, and what the borrower sees.
-- **FR-024**: Step 1 (Upload) MUST state which identifying fields are stripped before analysis (name, ID number, address, account number, signature block), which are retained for context (lender name, dates, amounts), and where the file is processed.
+- **FR-024**: Step 1 (Upload) MUST state which identifying fields are removed (name, ID number, address, account number, signature block), which are retained for context (lender name, dates, amounts), that the contract is uploaded over an encrypted connection and redacted server-side before analysis, and where the file is processed.
 - **FR-025**: Step 2 (Automated analysis) MUST state that the analysis is performed by a software system and not by humans, MUST name any third-party model provider used, and MUST state that checks apply Moldovan regulations.
 - **FR-026**: Step 3 (Report) MUST state that the borrower receives a report covering what is likely compliant, what is questionable, what may entitle them to a refund or legal protection, and what professional follow-up is available.
 
@@ -143,7 +144,7 @@ A skeptical reader finds plain answers to the questions they actually ask first.
 
 - **FR-032**: This section MUST state privacy as specifics, not adjectives, presented as a clean panel or short list, and MUST link to a detailed data-handling document.
 - **FR-033**: It MUST name the exact fields stripped and the exact fields retained during anonymization.
-- **FR-034**: It MUST state where analysis runs (client-side, server-side, or third-party API) and MUST name any third-party model provider that receives contract text.
+- **FR-034**: It MUST state that the file is uploaded over an encrypted connection and that identifying fields are removed server-side before the analysis runs; the page MUST NOT imply the file is redacted on the borrower's device unless client-side redaction is actually performed for that format. It MUST state where analysis runs (server-side and/or a named third-party API) and MUST name any third-party model provider that receives contract text.
 - **FR-035**: It MUST state how long the contract and the report are retained and how the borrower deletes them.
 - **FR-036**: It MUST state whether contract data is used to train any model and whether it is shared, sold, or aggregated.
 - **FR-037**: It MUST state that the lender is never contacted by the platform and that no action is taken on the borrower's behalf without explicit authorization.
@@ -151,7 +152,7 @@ A skeptical reader finds plain answers to the questions they actually ask first.
 ### Phase 1 — Contract upload entry & sample report
 
 - **FR-038**: The page MUST accept a contract document upload directly on the page and initiate the automated check from there; the check MUST be free with no account or up-front payment required.
-- **FR-039**: The upload widget MUST announce its status clearly to screen readers (for example "Reading clauses", "Checking interest rates").
+- **FR-039**: The upload widget MUST announce its own status clearly to screen readers across the stages it controls — file selected, validating, uploading, and received/queued. It MUST NOT announce backend analysis stages it cannot observe.
 - **FR-040**: The page MUST set expectations about supported contract formats and MUST communicate clearly when an uploaded document cannot be processed.
 - **FR-041**: A clearly labeled sample report MUST be available and reachable from the hero's secondary CTA.
 
@@ -221,6 +222,6 @@ A skeptical reader finds plain answers to the questions they actually ask first.
 - The optional recovery service (regulator letters, legal process, contingency-fee agreement) is described and disclosed on the page but executed in a separate post-report flow; the contingency-fee percentage is operator-supplied content.
 - The actual values for the required disclosures — registered entity name and number, contact email and postal address, named model/provider, the contingency-fee percentage, the responsible individuals and licensed legal professionals, regulatory standing, and the funding source that keeps the check free — are real content supplied by the operator before launch. This spec requires each disclosure to be present, accurate, and verifiable; it does not invent the values.
 - The page targets Moldova and launches in Romanian; legal-protection claims and abuse patterns are grounded in Moldovan consumer-credit / microfinance law. The architecture is built to add languages later.
-- Anonymization of the uploaded contract is described on the page in text and performed in the backend flow; the page does not display animated anonymization previews.
+- Anonymization is performed server-side after an encrypted upload and before analysis (not on the borrower's device); it is described on the page in text, with no animated preview. Client-side pre-upload redaction is a preferred future enhancement for formats where it can be done reliably (e.g., text-based PDF/DOCX); it is out of scope here because reliable redaction across all accepted formats (including scans and photos) is not achievable in-browser, and a server-side path must exist regardless. If added, it only strengthens the privacy claim and the copy is updated to match — never a blanket promise.
 - The page is a single marketing-and-intake page (content plus a contract-upload entry point); no borrower account or login exists on this page.
 - Supporting pages and documents referenced by the page (about, data-handling, methodology, terms, accessibility statement, sample report, abuse-pattern guide) exist or are produced alongside it; their full content is outside this spec but the links and the sample report are in scope as described.
