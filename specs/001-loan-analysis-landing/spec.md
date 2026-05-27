@@ -87,7 +87,6 @@ A skeptical reader finds plain answers to the questions they actually ask first.
 ### Edge Cases
 
 - A visitor reads only the hero and the footer: they still learn what the service does, that it is automated, that checking is free, and that a named, registered entity is accountable.
-- A visitor on a slow connection or an older device: the page remains usable and the content and disclosures remain legible.
 - A visitor has reduced-motion enabled: all non-essential motion is removed and no content depends on motion to be understood.
 - A keyboard-only or screen-reader visitor: every section, the upload widget (with spoken status), the CTAs, and the footer disclosures are reachable and announced; focus states are visible.
 - A visitor uploads an unsupported or poorly-handled format: expectations are set before upload (per the named failure modes) and the limitation is communicated, not silent.
@@ -115,7 +114,7 @@ A skeptical reader finds plain answers to the questions they actually ask first.
 - **FR-014**: The page MUST NOT use stock photography or testimonial photos; any testimonial MUST NOT display monetary amounts that read as winnings.
 - **FR-015**: The page MUST NOT use aggressive fintech aesthetics, neon gradients, heavy glassmorphism, crypto/startup hype language, trust-badge clutter, corporate-banking gravitas (navy-and-gold, pillars), or legal-intimidation imagery (scales, gavels, courthouses).
 - **FR-016**: The page MUST meet WCAG 2.2 AA for contrast, focus states (using the accent color), keyboard navigation, screen-reader support, and reduced motion.
-- **FR-017**: The page MUST remain usable and legible on slow connections and older devices.
+- **FR-017**: The page targets current evergreen browsers and MUST stay responsive and legible across common mobile, tablet, and desktop widths (from ~360px up). Support for outdated browsers, old or low-end devices, and constrained networks is out of scope and is NOT enforced.
 - **FR-018**: The overall presentation MUST read as a small, accountable institution that does one thing well and explains itself plainly — closer to a public-records portal or academic legal-aid project than a consumer fintech.
 
 ### Phase 1 — Hero (§1)
@@ -205,7 +204,7 @@ A skeptical reader finds plain answers to the questions they actually ask first.
 - **SC-007**: A content audit finds zero exclamation points, zero urgency/scarcity terms, zero reassurance/therapeutic phrases, zero emotional asks, and zero prohibited imagery.
 - **SC-008**: The page passes WCAG 2.2 AA automated and manual contrast and keyboard-operability checks with zero blocking violations, and the upload widget's status changes are announced to screen readers.
 - **SC-009**: With reduced-motion enabled, no non-essential motion plays and all content remains fully understandable.
-- **SC-010**: All required content and disclosures remain present and legible at a 360px-wide mobile viewport and on a constrained (slow-connection, older-device) profile.
+- **SC-010**: All required content and disclosures remain present and legible at a 360px-wide mobile viewport.
 - **SC-011**: Copy is verified at a B1 / grade-8 reading level.
 - **SC-012**: Every factual claim maps to a verifiable source in a claims audit; no unverifiable claim ships.
 - **SC-013**: Every FAQ answer is two to four sentences and ends in a period, not a call to action, verified by audit.
