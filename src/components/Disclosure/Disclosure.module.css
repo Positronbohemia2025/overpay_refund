@@ -1,0 +1,53 @@
+.disclosure {
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.heading {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  width: 100%;
+  padding: var(--space-5);
+  text-align: left;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-medium);
+  color: var(--color-text);
+  border-radius: var(--radius-md);
+}
+
+.summary {
+  flex: 1;
+}
+
+/* Thin-stroke, monochrome chevron (FR-012) drawn in CSS — no icon font. */
+.icon {
+  flex-shrink: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-right: 2px solid var(--color-text-muted);
+  border-bottom: 2px solid var(--color-text-muted);
+  transform: rotate(45deg);
+  transition: transform var(--transition-base);
+}
+.icon[data-open='true'] {
+  transform: rotate(-135deg);
+}
+
+.panel {
+  padding: 0 var(--space-5) var(--space-5);
+}
+
+.panelInner {
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+  max-width: var(--content-narrow);
+}
