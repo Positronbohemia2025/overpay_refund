@@ -2,6 +2,7 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { PATHS } from '../../routes/paths';
+import { ThemeToggle } from '../../components/ThemeToggle/ThemeToggle';
 import styles from './Header.module.css';
 
 /**
@@ -53,6 +54,10 @@ export function Header() {
             <a href="#estimator" className={styles.navLink}>{t('links.estimator')}</a>
           </nav>
 
+          <div className={styles.actions}>
+            <ThemeToggle />
+          </div>
+
           <button
             type="button"
             className={styles.menuToggle}
@@ -75,6 +80,7 @@ export function Header() {
                 {t('links.estimator')}
               </a>
             </nav>
+            <ThemeToggle />
           </div>
         )}
       </header>

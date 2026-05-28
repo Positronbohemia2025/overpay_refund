@@ -44,7 +44,7 @@ p {
 }
 
 a {
-  color: var(--accent);
+  color: var(--accent-text);
   text-decoration: underline;
   text-underline-offset: 0.15em;
   transition: color var(--transition-fast);
