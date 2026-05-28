@@ -6,7 +6,7 @@
   "description": "Loan-analysis landing page for a Moldovan microfinance contract-analysis service.",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && node scripts/build-static.mjs",
     "preview": "vite preview",
     "test": "vitest run tests/unit tests/a11y",
     "test:watch": "vitest tests/unit tests/a11y",
@@ -46,6 +46,7 @@
     "typescript": "^5.7.0",
     "typescript-eslint": "^8.20.0",
     "vite": "^6.0.7",
+    "vite-plugin-singlefile": "^2.3.3",
     "vitest": "^3.0.0",
     "vitest-axe": "^0.1.0"
   },

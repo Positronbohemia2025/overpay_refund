@@ -1,15 +1,11 @@
-/* CTA text color: deep emerald-black so emerald CTAs meet WCAG AA on dark.
-   Declared outside the --accent-* namespace so the single-accent gate stays clean. */
 .button {
-  --cta-text-on-emerald: #04231a;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: var(--space-2);
   padding: var(--space-3) var(--space-6);
-  min-height: 2.75rem; /* 44px touch target */
-  border-radius: var(--radius-md);
+  min-height: 64px;
+  border-radius: 8px;
   font-size: var(--text-sm);
   font-weight: var(--weight-semibold);
   line-height: 1;
@@ -23,12 +19,12 @@
 
 .primary {
   background-color: var(--accent);
-  color: var(--cta-text-on-emerald);
+  color: #fff;
   box-shadow: var(--shadow-sm);
 }
 .primary:hover {
   background-color: var(--accent-hover);
-  color: var(--cta-text-on-emerald);
+  color: #fff;
 }
 .primary:active {
   background-color: var(--accent-active);

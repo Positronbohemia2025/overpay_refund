@@ -1,5 +1,5 @@
 .heroSection {
-  padding-block: 0 var(--space-7);
+  padding-block: 40px var(--space-7);
   margin-top: 0;
 }
 
@@ -30,7 +30,11 @@
 }
 
 .accentWord {
-  color: var(--accent-text);
+  color: var(--accent-text); /* fallback */
+  background: linear-gradient(135deg, var(--text-gradient-start), var(--text-gradient-end));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .subhead {
