@@ -99,14 +99,14 @@ description: "Task list for Loan-Analysis Landing Page implementation"
 
 ### Implementation for User Story 2
 
-- [ ] T040 [P] [US2] Abuse-pattern content in `src/content/ro/patterns.ts`: 3–4 named patterns, one explanatory sentence each (from the approved set), plus the fixed closing declarative line; no blame-absolving phrasing (FR-046, FR-047)
-- [ ] T041 [P] [US2] Report + after-report content in `src/content/ro/report.ts`: clause statuses (compliant/questionable/likely-unlawful + regulation cited), overpayment estimate with calculation shown, calm timing note, recommended next step; three outcome paths (likely-unlawful → next paths + cost/payee + contingency disclosure; ambiguous → resolving info + human review; nothing-found → one-page summary, not a dead end) (FR-048–FR-051)
-- [ ] T042 [P] [US2] Romanian copy for §2 and §6 in `src/i18n/locales/ro/*.json`
-- [ ] T043 [US2] WhyThisExists section in `src/sections/WhyThisExists/` + `.module.css` (renders patterns + closing line) — depends on T040
-- [ ] T044 [US2] ReportAndAfter section in `src/sections/ReportAndAfter/` + `.module.css` (report deliverable + three outcome paths) — depends on T041
-- [ ] T045 [US2] Insert §2 (after Hero) and §6 (after ContractHandling) into `src/routes/Home.tsx` in canonical order (FR-001) — depends on T043, T044
-- [ ] T046 [P] [US2] Accessibility tests in `tests/a11y/` for §2 and §6 (SC-008)
-- [ ] T047 [P] [US2] Content lint in `tests/content/`: patterns are single sentences, no "many people don't realize"/blame phrasing, and the after-report content discloses the contingency fee (FR-003, FR-049, SC-007)
+- [X] T040 [P] [US2] Abuse-pattern content in `src/content/ro/patterns.ts`: 3–4 named patterns, one explanatory sentence each (from the approved set), plus the fixed closing declarative line; no blame-absolving phrasing (FR-046, FR-047)
+- [X] T041 [P] [US2] Report + after-report content in `src/content/ro/report.ts`: clause statuses (compliant/questionable/likely-unlawful + regulation cited), overpayment estimate with calculation shown, calm timing note, recommended next step; three outcome paths (likely-unlawful → next paths + cost/payee + contingency disclosure; ambiguous → resolving info + human review; nothing-found → one-page summary, not a dead end) (FR-048–FR-051)
+- [X] T042 [P] [US2] Romanian copy for §2 and §6 in `src/i18n/locales/ro/*.json`
+- [X] T043 [US2] WhyThisExists section in `src/sections/WhyThisExists/` + `.module.css` (renders patterns + closing line) — depends on T040
+- [X] T044 [US2] ReportAndAfter section in `src/sections/ReportAndAfter/` + `.module.css` (report deliverable + three outcome paths) — depends on T041
+- [X] T045 [US2] Insert §2 (after Hero) and §6 (after ContractHandling) into `src/routes/Home.tsx` in canonical order (FR-001) — depends on T043, T044
+- [X] T046 [P] [US2] Accessibility tests in `tests/a11y/` for §2 and §6 (SC-008)
+- [X] T047 [P] [US2] Content lint in `tests/content/`: patterns are single sentences, no "many people don't realize"/blame phrasing, and the after-report content discloses the contingency fee (FR-003, FR-049, SC-007)
 
 **Checkpoint**: User Stories 1 and 2 both work independently; the page now converts the unaware and the resigned.
 
