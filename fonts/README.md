@@ -1,8 +1,8 @@
 # Self-hosted fonts
 
 The page uses **Inter**, self-hosted (no font CDN — privacy + performance, research §6).
-Add these four woff2 subset files here; the `@font-face` rules in
-`src/styles/fonts.css` reference them and `index.html` preloads the primary
+Add these woff2 subset files here; the `@font-face` rules inlined in
+`index.html` reference them and `index.html` preloads the primary
 `latin-ext` weight.
 
 | File | Weight | Subset | Notes |

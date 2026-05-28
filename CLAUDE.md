@@ -1,29 +1,33 @@
 # overpay Development Guidelines
 
-Auto-generated from all feature plans. Last updated: 2026-05-27
+## Stack
 
-## Active Technologies
-
-- TypeScript 5.x, React 19, Node.js 20+ (build/test only; runtime output is static) + Vite 6+, React Router (client-rendered SPA), `i18next` + `react-i18next` (JSON resource catalogs). No CSS framework — CSS Modules + design tokens only. No CSS-in-JS. (001-loan-analysis-landing)
+Single static HTML landing page. No framework, no build step, no dependencies.
+`index.html` contains all markup, inlined CSS, and a small vanilla-JS island
+(theme toggle, mobile menu, recovery estimator).
 
 ## Project Structure
 
 ```text
-src/
-tests/
+index.html        # the entire page
+fonts/            # self-hosted Inter woff2 subsets (optional; system font fallback)
+docs/             # standalone document pages
 ```
 
-## Commands
+## Preview
 
-npm test && npm run lint
+```bash
+python3 -m http.server 4173
+```
 
 ## Code Style
 
-TypeScript 5.x, React 19, Node.js 20+ (build/test only; runtime output is static): Follow standard conventions
-
-## Recent Changes
-
-- 001-loan-analysis-landing: Added TypeScript 5.x, React 19, Node.js 20+ (build/test only; runtime output is static) + Vite 6+, React Router (client-rendered SPA), `i18next` + `react-i18next` (JSON resource catalogs). No CSS framework — CSS Modules + design tokens only. No CSS-in-JS.
+- One self-contained `index.html`. Keep CSS and JS inlined unless the file grows
+  unwieldy.
+- CSS custom properties drive theming (`:root` for light, `[data-theme='dark']`
+  for dark). Theme is persisted to `localStorage` under `overpay.theme` and
+  applied pre-paint by the inline script in `<head>` to avoid FOUC.
+- Vanilla JS only. No external scripts.
 
 <!-- MANUAL ADDITIONS START -->
 <!-- MANUAL ADDITIONS END -->
