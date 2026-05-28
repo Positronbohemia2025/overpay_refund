@@ -4,9 +4,9 @@ import { Section } from '../../components/Section/Section';
 import styles from './Hero.module.css';
 
 /**
- * Landing hero: split layout — left column carries the badge, headline, subhead,
- * CTAs and social proof; right column shows a decorative "contract analysis
- * preview" card (aria-hidden — it is illustrative only).
+ * Informational hero. Left column: headline, subhead, single CTA pointing at
+ * the on-page calculator. Right column: a decorative "contract analysis"
+ * preview card (aria-hidden — illustrative only).
  */
 export function Hero() {
   const { t } = useTranslation('hero');
@@ -24,26 +24,10 @@ export function Hero() {
           <p className={styles.subhead}>{t('subhead')}</p>
 
           <div className={styles.ctas}>
-            <Button as="anchor" href="#upload">
-              <FileIcon />
-              {t('ctaPrimary')}
-            </Button>
-            <Button as="anchor" href="#estimator" variant="secondary">
+            <Button as="anchor" href="#estimator">
               <CalcIcon />
-              {t('ctaSecondary')}
+              {t('cta')}
             </Button>
-          </div>
-
-          <div className={styles.proof}>
-            <AvatarStack />
-            <div className={styles.proofText}>
-              <span className={styles.stars} role="img" aria-label={t('ratingLabel')}>
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <StarIcon key={i} />
-                ))}
-              </span>
-              <span className={styles.proofLabel}>{t('socialProof')}</span>
-            </div>
           </div>
         </div>
 
@@ -84,24 +68,10 @@ export function Hero() {
                 <CheckIcon />
               </span>
             </div>
-
-            <div className={styles.previewChip}>
-              <span className={styles.chipDot} />
-              {t('mockCard.floatingChip')}
-            </div>
           </div>
         </aside>
       </div>
     </Section>
-  );
-}
-
-function FileIcon() {
-  return (
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-      <polyline points="14 2 14 8 20 8" />
-    </svg>
   );
 }
 
@@ -117,14 +87,6 @@ function CalcIcon() {
       <line x1="12" y1="15" x2="12" y2="15" />
       <line x1="16" y1="15" x2="16" y2="15" />
       <line x1="8" y1="19" x2="16" y2="19" />
-    </svg>
-  );
-}
-
-function StarIcon() {
-  return (
-    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
-      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
     </svg>
   );
 }
@@ -155,18 +117,5 @@ function CheckIcon() {
     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <polyline points="20 6 9 17 4 12" />
     </svg>
-  );
-}
-
-function AvatarStack() {
-  const initials = ['MA', 'IL', 'VP'];
-  return (
-    <div className={styles.avatars} aria-hidden="true">
-      {initials.map((init, i) => (
-        <span key={i} className={styles.avatar} data-i={i}>
-          {init}
-        </span>
-      ))}
-    </div>
   );
 }

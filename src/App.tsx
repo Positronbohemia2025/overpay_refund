@@ -5,7 +5,7 @@ import { LiveRegionProvider } from './components/LiveRegion/LiveRegion';
 import { LanguagePicker } from './components/LanguagePicker/LanguagePicker';
 import Home from './routes/Home';
 // import SampleReport from './routes/SampleReport';
-import About from './routes/About';
+// import About from './routes/About';
 import DataHandling from './routes/DataHandling';
 import Methodology from './routes/Methodology';
 import Terms from './routes/Terms';
@@ -49,7 +49,7 @@ export default function App() {
           <Route element={<Layout />}>
             <Route index element={<Home />} />
             {/* <Route path="sample-report" element={<SampleReport />} /> */}
-            <Route path="about" element={<About />} />
+            {/* <Route path="about" element={<About />} /> */}
             <Route path="data-handling" element={<DataHandling />} />
             <Route path="methodology" element={<Methodology />} />
             <Route path="terms" element={<Terms />} />

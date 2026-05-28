@@ -1,6 +1,6 @@
 {
-  "title": "Vezi cât ai putea recupera",
-  "subhead": "Folosește estimatorul pentru a vedea sumele care pot fi recuperate pe baza tiparelor abuzive frecvente.",
+  "title": "Vezi cât poate fi recuperat",
+  "subhead": "Estimează sumele care pot fi recuperate pe baza tiparelor abuzive frecvente din contractele de microcreditare.",
   "loanLabel": "Suma împrumutată (MDL)",
   "loanValuetext": "{{value}} lei împrumutați",
   "paidLabel": "Suma plătită total (MDL)",
@@ -13,7 +13,5 @@
   },
   "resultLabel": "Recuperare potențială estimată",
   "resultSuffix": "MDL",
-  "resultDisclaimer": "Estimare orientativă. Recuperarea reală depinde de clauzele specifice ale contractului.",
-  "cta": "Începe verificarea gratuită",
-  "infoTooltip": "Cum calculăm estimarea"
+  "resultDisclaimer": "Estimare orientativă. Recuperarea reală depinde de clauzele specifice ale contractului."
 }

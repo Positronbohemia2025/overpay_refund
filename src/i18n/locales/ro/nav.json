@@ -1,13 +1,6 @@
 {
   "links": {
-    "features": "Ce identificăm",
-    "estimator": "Estimator",
-    "upload": "Verifică contractul",
-    "about": "Despre noi",
-    "sample": "Raport-model"
-  },
-  "phone": "+373 22 000 000",
-  "phoneLabel": "Sună-ne",
-  "openMenu": "Deschide meniul",
-  "closeMenu": "Închide meniul"
+    "features": "Ce identifici",
+    "estimator": "Estimator"
+  }
 }

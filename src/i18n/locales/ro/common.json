@@ -7,17 +7,6 @@
     "supported": "Limbi disponibile"
   },
   "nav": {
-    "sampleReport": "Vezi un raport-model",
-    "about": "Despre noi",
-    "dataHandling": "Cum tratăm datele",
-    "methodology": "Metodologie",
-    "terms": "Termeni",
-    "accessibility": "Accesibilitate",
     "home": "Acasă"
-  },
-  "actions": {
-    "checkContract": "Verifică contractul",
-    "seeSample": "Vezi un raport-model",
-    "back": "Înapoi la pagina principală"
   }
 }

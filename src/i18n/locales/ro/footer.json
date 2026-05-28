@@ -1,34 +1,4 @@
 {
-  "tagline": "Protejăm consumatorii moldoveni împotriva practicilor abuzive de creditare și ajutăm la recuperarea sumelor încasate în plus.",
-  "quickLinks": {
-    "title": "Linkuri rapide",
-    "features": "Ce identificăm",
-    "estimator": "Estimator de recuperare",
-    "upload": "Verifică contractul",
-    "sample": "Raport-model"
-  },
-  "legal": {
-    "title": "Juridic",
-    "terms": "Termeni",
-    "dataHandling": "Cum tratăm datele",
-    "methodology": "Metodologie",
-    "accessibility": "Accesibilitate"
-  },
-  "contact": {
-    "title": "Contact",
-    "phoneLabel": "Telefon",
-    "emailLabel": "Email",
-    "addressLabel": "Adresă"
-  },
-  "socials": {
-    "title": "Urmărește-ne",
-    "telegram": "Telegram",
-    "viber": "Viber",
-    "facebook": "Facebook"
-  },
-  "languagesTitle": "Limbă",
-  "entityLine": "{{entity}} · Republica Moldova · număr de înregistrare {{registration}}",
-  "regulatoryLabel": "Statut de reglementare",
-  "copyright": "© 2026 {{entity}}. Toate drepturile rezervate. Nu suntem o agenție guvernamentală.",
-  "disclaimer": "Informațiile oferite nu reprezintă consultanță juridică directă. Sumele de recuperare sunt estimări bazate pe precedente. Rezultatele anterioare nu garantează rezultate viitoare."
+  "disclaimer": "Informațiile oferite nu reprezintă consultanță juridică. Sumele de recuperare sunt estimări orientative bazate pe tipare frecvente. Pentru evaluare individuală este nevoie de un jurist autorizat.",
+  "copyright": "© 2026 overpay"
 }

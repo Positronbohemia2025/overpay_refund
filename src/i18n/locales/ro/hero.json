@@ -1,12 +1,9 @@
 {
-  "headlineLead": "Recuperează banii",
+  "headlineLead": "Banii",
   "headlineAccent": "plătiți în plus",
-  "headlineTail": "la microcredite.",
-  "subhead": "Comisioanele ascunse și clauzele abuzive din contractele de microcreditare moldovenești sunt nelegale. Casa de avocatură partener analizează contractul gratuit și solicită rambursarea sumelor încasate.",
-  "ctaPrimary": "Verifică contractul acum",
-  "ctaSecondary": "Estimează recuperarea",
-  "socialProof": "Peste 2.500 de contracte analizate",
-  "ratingLabel": "Evaluare 5 din 5 stele",
+  "headlineTail": "la microcredite pot fi recuperați.",
+  "subhead": "Comisioanele ascunse și clauzele abuzive din contractele de microcreditare moldovenești sunt nelegale. Folosește calculatorul pentru a estima suma care poate fi recuperată.",
+  "cta": "Estimează recuperarea",
   "mockCard": {
     "title": "Analiză contract",
     "violationsBadge": "Încălcări identificate",
@@ -14,7 +11,6 @@
     "clauseFlag": "Clauză abuzivă detectată",
     "clauseLawRef": "Invalidă conform Legii nr. 202",
     "estimateLabel": "Recuperare estimată",
-    "estimateValue": "14.500 MDL",
-    "floatingChip": "Tocmai recuperați: 8.200 MDL"
+    "estimateValue": "14.500 MDL"
   }
 }
