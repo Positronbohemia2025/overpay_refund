@@ -1,1 +1,29 @@
-{}
+{
+  "title": "Pleacă cu ceva util, chiar dacă nu încarci acum",
+  "intro": "Iată trei opțiuni utile, prezentate ca alternative. Nu sunt o pâlnie de marketing.",
+  "sampleReport": {
+    "title": "Vezi un raport-model",
+    "description": "Un exemplu concret de raport, cu date fictive, ca să știi exact ce primești.",
+    "action": "Deschide raportul-model"
+  },
+  "guide": {
+    "title": "Descarcă ghidul scurt despre modele abuzive",
+    "description": "Un ghid de o pagină cu cele mai întâlnite modele de taxare nelegală în contractele de microcreditare din Republica Moldova.",
+    "action": "Descarcă ghidul"
+  },
+  "newsletter": {
+    "title": "Primește un buletin lunar despre acțiuni de reglementare",
+    "description": "Un buletin scurt, anonim, despre acțiunile recente ale organismelor de reglementare din Republica Moldova împotriva instituțiilor de microfinanțare. Confirmarea se face în doi pași, prin e-mail.",
+    "emailLabel": "Adresa de e-mail",
+    "emailPlaceholder": "nume@exemplu.md",
+    "submit": "Trimite confirmarea",
+    "status": {
+      "pending": "Verifică-ți inboxul pentru un e-mail de confirmare.",
+      "alreadySubscribed": "Adresa este deja abonată.",
+      "invalidEmail": "Adresa de e-mail nu pare validă.",
+      "serverError": "A apărut o problemă. Încearcă din nou mai târziu.",
+      "networkError": "Conexiunea a eșuat. Verifică internetul și încearcă din nou.",
+      "rateLimited": "Au fost prea multe încercări. Așteaptă puțin și încearcă din nou."
+    }
+  }
+}

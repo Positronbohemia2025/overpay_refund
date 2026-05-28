@@ -120,16 +120,16 @@ description: "Task list for Loan-Analysis Landing Page implementation"
 
 ### Implementation for User Story 3
 
-- [ ] T048 [P] [US3] FAQ content in `src/content/ro/faq.ts`: exactly the 10 questions from FR-052 in order, each answered in 2–4 plain sentences ending in a period (not a CTA)
-- [ ] T049 [P] [US3] Romanian copy for FAQ and off-ramp in `src/i18n/locales/ro/*.json`
-- [ ] T050 [US3] Faq section in `src/sections/Faq/` + `.module.css` using the Disclosure primitive, rendering the 10 items in order — depends on T048, T018
-- [ ] T051 [P] [US3] Abuse-pattern guide document in `public/docs/` + labeled download link (FR-053)
-- [ ] T052 [P] [US3] Newsletter signup in `src/components/Newsletter/` + `src/lib/newsletterClient.ts` per contracts/newsletter-subscribe.md (email + locale, double opt-in messaging, anonymous, plain-language result)
-- [ ] T053 [US3] OffRamp section in `src/sections/OffRamp/` + `.module.css` presenting sample report + guide + newsletter as alternatives (not a funnel) — depends on T051, T052 (FR-053, Non-Goals)
-- [ ] T054 [US3] Insert §7 (Faq, before footer) and the off-ramp into `src/routes/Home.tsx` in canonical order — depends on T050, T053 (FR-001)
-- [ ] T055 [US3] Multilingual readiness: footer names supported languages (ro) and wires the LanguagePicker; document the add-a-language flow (review gate) in `quickstart.md`; ensure unreviewed locales are not published (FR-054) — depends on T021
-- [ ] T056 [P] [US3] FAQ-format content lint in `tests/content/`: exactly 10 questions in the required order, answers 2–4 sentences ending in a period, no CTA (FR-052, SC-013)
-- [ ] T057 [P] [US3] Accessibility tests in `tests/a11y/` for FAQ and off-ramp (SC-008)
+- [X] T048 [P] [US3] FAQ content in `src/content/ro/faq.ts`: exactly the 10 questions from FR-052 in order, each answered in 2–4 plain sentences ending in a period (not a CTA)
+- [X] T049 [P] [US3] Romanian copy for FAQ and off-ramp in `src/i18n/locales/ro/*.json`
+- [X] T050 [US3] Faq section in `src/sections/Faq/` + `.module.css` using the Disclosure primitive, rendering the 10 items in order — depends on T048, T018
+- [X] T051 [P] [US3] Abuse-pattern guide document in `public/docs/` + labeled download link (FR-053)
+- [X] T052 [P] [US3] Newsletter signup in `src/components/Newsletter/` + `src/lib/newsletterClient.ts` per contracts/newsletter-subscribe.md (email + locale, double opt-in messaging, anonymous, plain-language result)
+- [X] T053 [US3] OffRamp section in `src/sections/OffRamp/` + `.module.css` presenting sample report + guide + newsletter as alternatives (not a funnel) — depends on T051, T052 (FR-053, Non-Goals)
+- [X] T054 [US3] Insert §7 (Faq, before footer) and the off-ramp into `src/routes/Home.tsx` in canonical order — depends on T050, T053 (FR-001)
+- [X] T055 [US3] Multilingual readiness: footer names supported languages (ro) and wires the LanguagePicker; document the add-a-language flow (review gate) in `quickstart.md`; ensure unreviewed locales are not published (FR-054) — depends on T021
+- [X] T056 [P] [US3] FAQ-format content lint in `tests/content/`: exactly 10 questions in the required order, answers 2–4 sentences ending in a period, no CTA (FR-052, SC-013)
+- [X] T057 [P] [US3] Accessibility tests in `tests/a11y/` for FAQ and off-ramp (SC-008)
 
 **Checkpoint**: All three user stories are independently functional; the full page is complete.
 
