@@ -64,10 +64,12 @@
   background-color: var(--color-surface-elevated);
   box-shadow:
     0 0 0 1px var(--color-border-strong),
-    var(--shadow-lg);
+    0 6px 24px color-mix(in srgb, var(--accent) 28%, transparent);
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
+  transform: rotate(3deg);
+  transform-origin: center;
 }
 
 .previewHeader {
