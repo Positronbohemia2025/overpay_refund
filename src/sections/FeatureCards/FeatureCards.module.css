@@ -1,5 +1,6 @@
 .sectionWrap {
   background-color: var(--color-bg);
+  padding-block-start: var(--space-6);
 }
 
 .header {

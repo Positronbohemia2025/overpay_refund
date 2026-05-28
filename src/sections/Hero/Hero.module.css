@@ -1,6 +1,10 @@
 .heroSection {
-  padding-block: 0 var(--space-10);
+  padding-block: 0 var(--space-7);
   margin-top: 0;
+}
+
+.heroSection > div {
+  padding-inline: 24px;
 }
 
 .grid {
