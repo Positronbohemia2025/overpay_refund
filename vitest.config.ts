@@ -12,5 +12,9 @@ export default defineConfig({
     css: { modules: { classNameStrategy: 'non-scoped' } },
     include: ['tests/**/*.{test,spec}.{ts,tsx}'],
     exclude: ['tests/e2e/**', 'node_modules/**'],
+    // tests/release/ holds release-blocking gates (operator-content + no-TODO
+    // claims sources). They are not picked up by the default `test`/`lint:content`
+    // scripts (which target specific subdirs); run them on demand via
+    // `npm run lint:release` before going live.
   },
 });

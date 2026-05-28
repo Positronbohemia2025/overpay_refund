@@ -59,9 +59,10 @@
   max-width: 70ch;
 }
 
+/* `--color-text-subtle` fails AA on the sunken footer bg; muted clears 4.5:1. */
 .closing {
   font-size: var(--text-sm);
-  color: var(--color-text-subtle);
+  color: var(--color-text-muted);
 }
 
 @media (max-width: 52rem) {

@@ -22,7 +22,7 @@
 
   --color-text: #1f2730; /* muted slate — body, AA on --color-bg */
   --color-text-muted: #525e6b; /* dusty slate — secondary text, AA on --color-bg */
-  --color-text-subtle: #6b7682; /* tertiary; use on surface, large text only */
+  --color-text-subtle: #5b6570; /* tertiary; AA on sunken bg at normal text size */
 
   --color-dusty-blue: #5b7089; /* accentless secondary neutral for diagrams/labels */
 

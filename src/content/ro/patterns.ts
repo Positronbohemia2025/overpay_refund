@@ -12,7 +12,7 @@ export const abusePatterns: AbusePattern[] = [
     id: 'hidden-apr',
     title: 'Dobândă reală ascunsă în comisioane',
     explanation:
-      'Dobânda anuală efectivă ajunge la 200–600% atunci când comisioanele de serviciu, de procesare și de asigurare sunt listate separat și nu intră în rata afișată.',
+      'Dobânda efectivă ajunge la 200–600% când comisioanele de serviciu, procesare și asigurare sunt listate separat și nu intră în rata afișată.',
   },
   {
     id: 'penalty-on-penalty',
@@ -36,4 +36,4 @@ export const abusePatterns: AbusePattern[] = [
 
 /** FR-047 — the fixed declarative line that closes §2. */
 export const patternsClosingLine =
-  'Un împrumutat care a plătit la timp, de fiecare dată, poate totuși plăti substanțial mai mult decât trebuie, fără niciun semn vizibil că ceva este în neregulă.';
+  'Un împrumutat care a plătit la timp poate totuși plăti substanțial mai mult decât trebuie. Nimic vizibil în contract nu îi semnalează acest lucru.';

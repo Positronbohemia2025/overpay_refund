@@ -139,15 +139,15 @@ description: "Task list for Loan-Analysis Landing Page implementation"
 
 **Purpose**: Whole-page acceptance gates tied to the cross-cutting requirements and success criteria
 
-- [ ] T058 [P] Reduced-motion audit in `tests/e2e/`: with `prefers-reduced-motion`, no non-essential motion plays and all content remains understandable (SC-009, FR-013)
-- [ ] T059 [P] Responsive verification in `tests/e2e/`: all sections and disclosures legible at 360px width on current browsers (SC-010, FR-017)
-- [ ] T060 [P] Full WCAG 2.2 AA pass: axe across all routes + manual keyboard/focus + screen-reader review (SC-008, FR-016)
-- [ ] T061 [P] Reading-level check (~B1/grade-8) for all Romanian copy in `tests/content/` (SC-011, FR-007)
-- [ ] T062 [P] Build the claims register in `docs/claims-register.md` mapping each factual claim to a verifiable source, and lint that no unmapped claim ships (SC-012, FR-006)
-- [ ] T063 [P] Tone & imagery audit: zero exclamation/urgency/therapeutic/emotional-ask phrasing; no prohibited imagery (stock/testimonial photos, scales/gavels/courthouses, navy-gold gravitas, neon/glassmorphism); exactly one accent token in use (SC-007, FR-002–FR-005, FR-014, FR-015)
-- [ ] T064 UX acceptance checklist in `docs/`: usability script verifying one-scroll understanding (SC-001), honest skeptic answers to catch/data/after-report (SC-002), all disclosures findable incl. funding within 20s (SC-003), non-uploader value via off-ramp (SC-004), each persona finds its section + next step (SC-005), and reaching upload from the hero in one action (SC-006)
-- [ ] T065 Operator-content completeness check: confirm every required disclosure slot holds a real, verifiable value before launch (legal entity, model provider, contingency %, named licensed professionals, funding source, law citations) — blocks release
-- [ ] T066 [P] Write `README.md` and run the `quickstart.md` validation (install, dev, build, preview, test, lint, lint:content)
+- [X] T058 [P] Reduced-motion audit in `tests/e2e/`: with `prefers-reduced-motion`, no non-essential motion plays and all content remains understandable (SC-009, FR-013)
+- [X] T059 [P] Responsive verification in `tests/e2e/`: all sections and disclosures legible at 360px width on current browsers (SC-010, FR-017)
+- [X] T060 [P] Full WCAG 2.2 AA pass: axe across all routes + manual keyboard/focus + screen-reader review (SC-008, FR-016)
+- [X] T061 [P] Reading-level check (~B1/grade-8) for all Romanian copy in `tests/content/` (SC-011, FR-007)
+- [X] T062 [P] Build the claims register in `docs/claims-register.md` mapping each factual claim to a verifiable source, and lint that no unmapped claim ships (SC-012, FR-006)
+- [X] T063 [P] Tone & imagery audit: zero exclamation/urgency/therapeutic/emotional-ask phrasing; no prohibited imagery (stock/testimonial photos, scales/gavels/courthouses, navy-gold gravitas, neon/glassmorphism); exactly one accent token in use (SC-007, FR-002–FR-005, FR-014, FR-015)
+- [X] T064 UX acceptance checklist in `docs/`: usability script verifying one-scroll understanding (SC-001), honest skeptic answers to catch/data/after-report (SC-002), all disclosures findable incl. funding within 20s (SC-003), non-uploader value via off-ramp (SC-004), each persona finds its section + next step (SC-005), and reaching upload from the hero in one action (SC-006)
+- [X] T065 Operator-content completeness check: confirm every required disclosure slot holds a real, verifiable value before launch (legal entity, model provider, contingency %, named licensed professionals, funding source, law citations) — blocks release
+- [X] T066 [P] Write `README.md` and run the `quickstart.md` validation (install, dev, build, preview, test, lint, lint:content)
 
 ---
 

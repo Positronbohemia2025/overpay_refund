@@ -13,6 +13,7 @@
     "test:e2e": "playwright test",
     "lint": "eslint . && stylelint \"src/**/*.css\"",
     "lint:content": "vitest run tests/content",
+    "lint:release": "vitest run tests/release",
     "typecheck": "tsc -b"
   },
   "dependencies": {
@@ -23,6 +24,7 @@
     "react-router-dom": "^7.1.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.0",
     "@eslint/js": "^9.18.0",
     "@playwright/test": "^1.50.0",
     "@testing-library/jest-dom": "^6.6.3",

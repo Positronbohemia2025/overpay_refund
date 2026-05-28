@@ -22,9 +22,9 @@ export const afterReportPaths: AfterReportPath[] = [
   {
     outcome: 'likely_unlawful',
     description:
-      'Dacă raportul găsește taxe probabil nelegale sau clauze abuzive, primești un pas clar: o trimitere către un profesionist verificat, o plângere-model către organismul de reglementare sau o scrisoare de somație pe care o poți trimite chiar tu. Dacă alegi serviciul opțional de recuperare, acesta percepe un comision de succes — un procent din sumele recuperate — prin scrisori către organismele de reglementare sau printr-un proces legal, în numele tău, sub licența unor juriști.',
-    cost: 'Scrisorile pe care le trimiți singur nu costă nimic; serviciul de recuperare percepe un comision doar din sumele recuperate efectiv.',
-    payee: 'Comisionul de succes merge către serviciul de recuperare; restul sumei recuperate îți rămâne ție.',
+      'Dacă raportul găsește taxe probabil nelegale sau clauze abuzive, primești un pas clar. Poți fi îndrumat către un profesionist verificat, sau primești o plângere-model ori o scrisoare de somație. Pe acestea le poți trimite chiar tu. Dacă alegi serviciul opțional de recuperare, acesta percepe un comision de succes — un procent din sumele recuperate. Recuperarea se face prin scrisori către organismele de reglementare sau printr-un proces legal, sub licența unor juriști.',
+    cost: 'Scrisorile pe care le trimiți singur nu costă nimic. Serviciul de recuperare percepe un comision doar dacă recuperează bani.',
+    payee: 'Comisionul merge către serviciul de recuperare; restul sumei recuperate îți rămâne ție.',
     humanReviewPath: null,
   },
   {
