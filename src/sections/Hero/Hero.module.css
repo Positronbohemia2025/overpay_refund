@@ -32,7 +32,6 @@
 .accentWord {
   color: var(--accent-text); /* fallback */
   background: linear-gradient(135deg, var(--text-gradient-start), var(--text-gradient-end));
-  -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
