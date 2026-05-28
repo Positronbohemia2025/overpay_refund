@@ -14,11 +14,19 @@ export interface UploadResult {
   reason: RejectReason;
 }
 
+export interface UploadMetadata {
+  firstName?: string;
+  lastName?: string;
+  phone?: string;
+  lenderId?: string | null;
+}
+
 interface UploadArgs {
   file: File;
   locale: string;
   consentAnonymizedProcessing: boolean;
   consentTerms: boolean;
+  metadata?: UploadMetadata;
 }
 
 /** Map the contract's error codes to our client reject reasons. */
@@ -49,12 +57,17 @@ export async function submitUpload({
   locale,
   consentAnonymizedProcessing,
   consentTerms,
+  metadata,
 }: UploadArgs): Promise<UploadResult> {
   const form = new FormData();
   form.append('file', file);
   form.append('locale', locale);
   form.append('consent_anonymized_processing', String(consentAnonymizedProcessing));
   form.append('consent_terms', String(consentTerms));
+  if (metadata?.firstName) form.append('first_name', metadata.firstName);
+  if (metadata?.lastName) form.append('last_name', metadata.lastName);
+  if (metadata?.phone) form.append('phone', metadata.phone);
+  if (metadata?.lenderId) form.append('lender_id', metadata.lenderId);
 
   try {
     const response = await fetch(`${env.intakeBaseUrl}/v1/submissions`, {

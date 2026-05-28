@@ -1,10 +1,10 @@
-import { useId, useRef, useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../Button/Button';
 import { useAnnounce } from '../LiveRegion/useAnnounce';
 import { env } from '../../lib/env';
 import { ALLOWED_MIME_TYPES, validateConsents, validateFile } from '../../lib/validateUpload';
-import { submitUpload } from '../../lib/uploadClient';
+import { submitUpload, type UploadMetadata } from '../../lib/uploadClient';
 import type { RejectReason, UploadStatus } from '../../types';
 import styles from './UploadWidget.module.css';
 
@@ -18,7 +18,13 @@ import styles from './UploadWidget.module.css';
 const MAX_MB = Math.round(env.maxUploadBytes / (1024 * 1024));
 const ACCEPT_ATTR = ALLOWED_MIME_TYPES.join(',');
 
-export default function UploadWidget({ locale = 'ro' }: { locale?: string }) {
+interface UploadWidgetProps {
+  locale?: string;
+  metadata?: UploadMetadata;
+  onAccepted?: () => void;
+}
+
+export default function UploadWidget({ locale = 'ro', metadata, onAccepted }: UploadWidgetProps) {
   const { t } = useTranslation('upload');
   const announce = useAnnounce();
 
@@ -72,6 +78,7 @@ export default function UploadWidget({ locale = 'ro' }: { locale?: string }) {
       locale,
       consentAnonymizedProcessing: anonymized,
       consentTerms: terms,
+      metadata,
     });
 
     if (result.accepted) {
@@ -90,7 +97,11 @@ export default function UploadWidget({ locale = 'ro' }: { locale?: string }) {
     if (inputRef.current) inputRef.current.value = '';
   };
 
-  if (status === 'accepted') {
+  useEffect(() => {
+    if (status === 'accepted') onAccepted?.();
+  }, [status, onAccepted]);
+
+  if (status === 'accepted' && !onAccepted) {
     return (
       <div className={styles.widget}>
         <p className={styles.accepted}>{t('status.accepted')}</p>

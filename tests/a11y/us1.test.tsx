@@ -1,7 +1,7 @@
 /**
- * US1 accessibility gates (T038 / SC-008).
- * axe across each US1 section + the composed Home, plus a check that the upload
- * widget announces every client-controlled state change to the live region.
+ * Landing-page accessibility gates (SC-008).
+ * axe across each section + a verification that UploadWidget announces every
+ * client-controlled state change to the live region.
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { axe } from 'vitest-axe';
@@ -9,21 +9,23 @@ import { screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { renderWithProviders, renderWithAnnounceSpy } from './render';
 // color-contrast needs a canvas (unavailable in jsdom); it is verified for real
-// in the Playwright/Lighthouse e2e pass (T060). Here we check structure.
+// in the Playwright/Lighthouse e2e pass. Here we check structure.
 const AXE_OPTIONS = { rules: { 'color-contrast': { enabled: false } } } as const;
+import { Header } from '../../src/sections/Header/Header';
 import { Hero } from '../../src/sections/Hero/Hero';
-import { HowItWorks } from '../../src/sections/HowItWorks/HowItWorks';
-import { WhoWeAreFunding } from '../../src/sections/WhoWeAreFunding/WhoWeAreFunding';
-import { ContractHandling } from '../../src/sections/ContractHandling/ContractHandling';
+import { FeatureCards } from '../../src/sections/FeatureCards/FeatureCards';
+import { Estimator } from '../../src/sections/Estimator/Estimator';
+import { UploadSection } from '../../src/sections/UploadSection/UploadSection';
 import { SiteFooter } from '../../src/sections/SiteFooter/SiteFooter';
 import UploadWidget from '../../src/components/UploadWidget/UploadWidget';
 
-describe('US1 sections have no axe violations', () => {
+describe('landing sections have no axe violations', () => {
   const cases: Array<[string, () => React.ReactElement]> = [
+    ['Header', () => <Header />],
     ['Hero', () => <Hero />],
-    ['HowItWorks', () => <HowItWorks />],
-    ['WhoWeAreFunding', () => <WhoWeAreFunding />],
-    ['ContractHandling', () => <ContractHandling />],
+    ['FeatureCards', () => <FeatureCards />],
+    ['Estimator', () => <Estimator />],
+    ['UploadSection', () => <UploadSection />],
     ['SiteFooter', () => <SiteFooter />],
   ];
 

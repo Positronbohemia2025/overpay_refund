@@ -1,7 +1,20 @@
 {
-  "headline": "Află dacă ai fost taxat cu dobânzi sau comisioane nelegale la creditul tău.",
-  "subhead": "Serviciul analizează contractele de microcreditare pentru dobânzi nelegale, comisioane nedezvăluite și clauze care îți pot da dreptul la o rambursare. Analiza este realizată de un sistem automat, iar contractul este anonimizat înainte de a fi examinat. Rezultatul îți aparține.",
-  "trustSignal": "Serviciul funcționează sub coordonarea unor juriști licențiați din Republica Moldova.",
-  "belowFold": "Serviciul este oferit de {{entity}}, {{nature}} înregistrată în Republica Moldova. Verificarea contractului este gratuită și este susținută prin {{funding}}.",
-  "uploadHeading": "Încarcă-ți contractul"
+  "headlineLead": "Recuperează banii",
+  "headlineAccent": "plătiți în plus",
+  "headlineTail": "la microcredite.",
+  "subhead": "Comisioanele ascunse și clauzele abuzive din contractele de microcreditare moldovenești sunt nelegale. Casa de avocatură partener analizează contractul gratuit și solicită rambursarea sumelor încasate.",
+  "ctaPrimary": "Verifică contractul acum",
+  "ctaSecondary": "Estimează recuperarea",
+  "socialProof": "Peste 2.500 de contracte analizate",
+  "ratingLabel": "Evaluare 5 din 5 stele",
+  "mockCard": {
+    "title": "Analiză contract",
+    "violationsBadge": "Încălcări identificate",
+    "clauseQuote": "Art 4.2: În caz de întârziere, împrumutatul acceptă o penalitate de 2% pe zi aplicată la suma totală restantă...",
+    "clauseFlag": "Clauză abuzivă detectată",
+    "clauseLawRef": "Invalidă conform Legii nr. 202",
+    "estimateLabel": "Recuperare estimată",
+    "estimateValue": "14.500 MDL",
+    "floatingChip": "Tocmai recuperați: 8.200 MDL"
+  }
 }

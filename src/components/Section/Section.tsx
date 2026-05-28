@@ -9,19 +9,30 @@ import styles from './Section.module.css';
 interface SectionProps {
   id: string;
   titleId?: string;
-  tone?: 'default' | 'sunken';
-  width?: 'default' | 'narrow';
+  tone?: 'default' | 'sunken' | 'elevated';
+  width?: 'default' | 'narrow' | 'wide';
+  className?: string;
   children: ReactNode;
 }
 
-export function Section({ id, titleId, tone = 'default', width = 'default', children }: SectionProps) {
+const toneClass = { default: '', sunken: 'sunken', elevated: 'elevated' } as const;
+const widthClass = { default: 'inner', narrow: 'innerNarrow', wide: 'innerWide' } as const;
+
+export function Section({
+  id,
+  titleId,
+  tone = 'default',
+  width = 'default',
+  className,
+  children,
+}: SectionProps) {
   return (
     <section
       id={id}
       aria-labelledby={titleId}
-      className={[styles.section, tone === 'sunken' ? styles.sunken : ''].filter(Boolean).join(' ')}
+      className={[styles.section, styles[toneClass[tone]], className].filter(Boolean).join(' ')}
     >
-      <div className={width === 'narrow' ? styles.innerNarrow : styles.inner}>{children}</div>
+      <div className={styles[widthClass[width]]}>{children}</div>
     </section>
   );
 }

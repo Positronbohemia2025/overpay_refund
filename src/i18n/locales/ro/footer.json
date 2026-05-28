@@ -1,10 +1,34 @@
 {
+  "tagline": "Protejăm consumatorii moldoveni împotriva practicilor abuzive de creditare și ajutăm la recuperarea sumelor încasate în plus.",
+  "quickLinks": {
+    "title": "Linkuri rapide",
+    "features": "Ce identificăm",
+    "estimator": "Estimator de recuperare",
+    "upload": "Verifică contractul",
+    "sample": "Raport-model"
+  },
+  "legal": {
+    "title": "Juridic",
+    "terms": "Termeni",
+    "dataHandling": "Cum tratăm datele",
+    "methodology": "Metodologie",
+    "accessibility": "Accesibilitate"
+  },
+  "contact": {
+    "title": "Contact",
+    "phoneLabel": "Telefon",
+    "emailLabel": "Email",
+    "addressLabel": "Adresă"
+  },
+  "socials": {
+    "title": "Urmărește-ne",
+    "telegram": "Telegram",
+    "viber": "Viber",
+    "facebook": "Facebook"
+  },
+  "languagesTitle": "Limbă",
   "entityLine": "{{entity}} · Republica Moldova · număr de înregistrare {{registration}}",
-  "contactLabel": "Contact:",
-  "addressLabel": "Adresă:",
-  "regulatoryLabel": "Statut de reglementare:",
-  "linksTitle": "Informații",
-  "languagesTitle": "Limbi disponibile",
-  "disclaimer": "Analiza oferă orientare, nu un verdict juridic. Pentru a acționa, poate fi nevoie de un profesionist calificat.",
-  "closingLine": "Când ești pregătit, încarcă-ți contractul."
+  "regulatoryLabel": "Statut de reglementare",
+  "copyright": "© 2026 {{entity}}. Toate drepturile rezervate. Nu suntem o agenție guvernamentală.",
+  "disclaimer": "Informațiile oferite nu reprezintă consultanță juridică directă. Sumele de recuperare sunt estimări bazate pe precedente. Rezultatele anterioare nu garantează rezultate viitoare."
 }

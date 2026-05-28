@@ -1,25 +1,46 @@
 .section {
-  padding-block: var(--space-9);
+  padding-block: var(--space-10);
 }
 
 .sunken {
   background-color: var(--color-surface-sunken);
 }
 
+.elevated {
+  background-color: var(--color-surface);
+}
+
 .inner {
   max-width: var(--content-max);
   margin: 0 auto;
-  padding-inline: var(--space-5);
+  padding-inline: var(--space-6);
 }
 
 .innerNarrow {
   max-width: var(--content-narrow);
   margin: 0 auto;
-  padding-inline: var(--space-5);
+  padding-inline: var(--space-6);
+}
+
+.innerWide {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding-inline: var(--space-6);
+}
+
+@media (max-width: 60rem) {
+  .section {
+    padding-block: var(--space-9);
+  }
+  .inner,
+  .innerNarrow,
+  .innerWide {
+    padding-inline: var(--space-5);
+  }
 }
 
 @media (max-width: 36rem) {
   .section {
-    padding-block: var(--space-7);
+    padding-block: var(--space-8);
   }
 }

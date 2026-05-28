@@ -1,5 +1,5 @@
 {
-  "brand": "Verifică Contractul",
+  "brand": "overpay",
   "skipToContent": "Sari la conținut",
   "mainLandmark": "Conținut principal",
   "language": {
@@ -16,7 +16,7 @@
     "home": "Acasă"
   },
   "actions": {
-    "checkContract": "Verifică-mi contractul",
+    "checkContract": "Verifică contractul",
     "seeSample": "Vezi un raport-model",
     "back": "Înapoi la pagina principală"
   }

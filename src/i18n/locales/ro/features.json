@@ -1,0 +1,18 @@
+{
+  "title": "Ce identificăm în contracte",
+  "subhead": "Trei tipare frecvente în creditele oferite de organizațiile de microfinanțare din Moldova.",
+  "cards": {
+    "hiddenFees": {
+      "title": "Comisioane ascunse",
+      "body": "Multe contracte includ comisioane de procesare, administrare și prelungire care umflă datoria reală."
+    },
+    "illegalRates": {
+      "title": "Dobândă peste limita legală",
+      "body": "Costul total al creditului are o limită clară în lege. Dacă ai împrumutat 5.000 MDL, nu trebuie să rambursezi 15.000."
+    },
+    "abusivePenalties": {
+      "title": "Penalități abuzive",
+      "body": "Penalitățile zilnice de 1% sau 2% sunt deseori invalide din punct de vedere legal. Identificăm aceste clauze și solicităm recalcularea."
+    }
+  }
+}

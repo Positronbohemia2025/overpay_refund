@@ -1,73 +1,175 @@
 .footer {
   background-color: var(--color-surface-sunken);
-  padding-block: var(--space-8) var(--space-7);
+  padding-block: var(--space-9) var(--space-6);
+  box-shadow: inset 0 1px 0 var(--color-border-soft);
 }
 
 .inner {
   max-width: var(--content-max);
   margin: 0 auto;
-  padding-inline: var(--space-5);
+  padding-inline: var(--space-6);
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: var(--space-6);
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: var(--space-7);
+}
+
+.colBrand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+}
+
+.brandMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--accent-soft);
+  color: var(--accent);
+}
+
+.brandText {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--accent);
+}
+
+.tagline {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: var(--leading-normal);
+  max-width: 36ch;
+  margin: 0;
+}
+
+.socials {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.social:hover {
+  color: var(--accent);
+  background-color: var(--accent-soft);
 }
 
 .col {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-3);
 }
 
 .colTitle {
-  font-size: var(--text-sm);
-  font-weight: var(--weight-semibold);
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
   color: var(--color-text);
-  margin-bottom: var(--space-2);
-}
-
-.entity {
-  font-weight: var(--weight-medium);
-  color: var(--color-text);
-}
-
-.meta {
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
+  margin: 0 0 var(--space-2);
 }
 
 .links {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+}
+
+.links a {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.links a:hover {
+  color: var(--color-text);
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+.contactItem svg {
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-top: 0.2em;
 }
 
 .bottom {
   max-width: var(--content-max);
   margin: var(--space-7) auto 0;
-  padding: var(--space-5) var(--space-5) 0;
+  padding: var(--space-5) var(--space-6) 0;
   display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: space-between;
+  align-items: flex-start;
   box-shadow: inset 0 1px 0 var(--color-border-soft);
 }
 
+.copyright {
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
+  margin: 0;
+  max-width: 48ch;
+}
+
 .disclaimer {
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
-  max-width: 70ch;
+  font-size: var(--text-xs);
+  color: var(--color-text-subtle);
+  margin: 0;
+  max-width: 56ch;
+  text-align: right;
 }
 
-/* `--color-text-subtle` fails AA on the sunken footer bg; muted clears 4.5:1. */
-.closing {
-  font-size: var(--text-sm);
-  color: var(--color-text-muted);
+@media (max-width: 60rem) {
+  .inner {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-6);
+  }
+  .colBrand {
+    grid-column: 1 / -1;
+  }
 }
 
-@media (max-width: 52rem) {
+@media (max-width: 36rem) {
   .inner {
     grid-template-columns: 1fr;
-    gap: var(--space-6);
+  }
+  .disclaimer {
+    text-align: left;
   }
 }

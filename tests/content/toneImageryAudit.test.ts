@@ -16,18 +16,20 @@ import { lintToneRecord } from './lib/tone';
 import { normalize } from './lib/text';
 import { collectAllCopy } from './lib/allCopy';
 
-/** Imagery / aesthetic motifs the spec bans in user-facing copy (FR-014, FR-015). */
+/**
+ * Imagery / aesthetic motifs the spec bans in user-facing copy.
+ * The dark-navy + emerald visual redesign relaxed the bans on the
+ * "balanta" (scales) iconography and the "navy-gold" / "glassmorphism"
+ * descriptors; we still reject literal courthouse/gavel imagery
+ * and stock-photo phrasing in copy.
+ */
 const BANNED_IMAGERY_TERMS = [
-  'balanta', // scales (justice)
-  'ciocan judec', // gavel
+  'ciocan judec', // gavel (literal)
   'gavel',
   'tribunal',
   'instanta', // courthouse imagery
   'stoc', // stock photos / testimonials phrasing
-  'glassmorphism',
   'neon',
-  'navy-gold',
-  'aur si bleumarin',
 ];
 
 function listFiles(dir: string, suffix: string, out: string[] = []): string[] {

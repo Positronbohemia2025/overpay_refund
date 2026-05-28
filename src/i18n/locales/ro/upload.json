@@ -1,4 +1,41 @@
 {
+  "section": {
+    "headlineLead": "Încarcă contractul pentru o",
+    "headlineAccent": "analiză juridică gratuită",
+    "subhead": "Trimite documentul de credit. Avocații parteneri îl analizează în 24 de ore pentru a identifica clauzele nelegale și a calcula suma exactă pe care o poți recupera.",
+    "trust": {
+      "confidentialTitle": "100% Confidențial",
+      "confidentialBody": "Datele sunt criptate și protejate prin secretul profesional al avocatului.",
+      "noUpfrontTitle": "Fără costuri inițiale",
+      "noUpfrontBody": "Lucrăm pe model de comision de succes. Nu plătești nimic în avans.",
+      "fastTitle": "Procesare rapidă",
+      "fastBody": "Primești evaluarea juridică inițială pe telefon sau email în 24 de ore."
+    },
+    "steps": {
+      "details": "Datele tale",
+      "upload": "Încărcare",
+      "confirm": "Confirmare"
+    },
+    "form": {
+      "firstName": "Prenume",
+      "firstNamePlaceholder": "Ion",
+      "lastName": "Nume",
+      "lastNamePlaceholder": "Popescu",
+      "phone": "Telefon / Telegram",
+      "phonePrefix": "+373",
+      "phonePlaceholder": "69 000 000",
+      "lender": "Compania creditoare (opțional)",
+      "lenderPlaceholder": "Selectează compania",
+      "continueCta": "Continuă către încărcare",
+      "consentNote": "Continuând, accepți {{terms}} și consimți să fii contactat în legătură cu cazul.",
+      "termsLink": "Termenii"
+    },
+    "confirm": {
+      "title": "Am primit datele tale",
+      "body": "În următoarele 24 de ore primești evaluarea juridică inițială prin telefon sau email.",
+      "sampleLink": "Vezi un raport-model"
+    }
+  },
   "fileLabel": "Alege contractul (PDF, DOCX, JPG sau PNG)",
   "fileHint": "Acceptăm fișiere PDF, DOCX, JPG și PNG, de cel mult {{max}} MB.",
   "noFile": "Niciun fișier ales",
