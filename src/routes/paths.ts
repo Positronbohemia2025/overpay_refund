@@ -1,10 +1,10 @@
 /** Central route paths so the header, hero, footer, and router never drift. */
 export const PATHS = {
   home: '/',
-  sampleReport: '/raport-model',
-  about: '/despre',
-  dataHandling: '/date',
-  methodology: '/metodologie',
-  terms: '/termeni',
-  accessibility: '/accesibilitate',
+  sampleReport: '/sample-report',
+  about: '/about',
+  dataHandling: '/data-handling',
+  methodology: '/methodology',
+  terms: '/terms',
+  accessibility: '/accessibility',
 } as const;

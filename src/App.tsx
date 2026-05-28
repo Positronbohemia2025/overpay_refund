@@ -48,12 +48,12 @@ export default function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route index element={<Home />} />
-            {/* <Route path="raport-model" element={<SampleReport />} /> */}
-            <Route path="despre" element={<About />} />
-            <Route path="date" element={<DataHandling />} />
-            <Route path="metodologie" element={<Methodology />} />
-            <Route path="termeni" element={<Terms />} />
-            <Route path="accesibilitate" element={<Accessibility />} />
+            {/* <Route path="sample-report" element={<SampleReport />} /> */}
+            <Route path="about" element={<About />} />
+            <Route path="data-handling" element={<DataHandling />} />
+            <Route path="methodology" element={<Methodology />} />
+            <Route path="terms" element={<Terms />} />
+            <Route path="accessibility" element={<Accessibility />} />
           </Route>
         </Routes>
       </BrowserRouter>
