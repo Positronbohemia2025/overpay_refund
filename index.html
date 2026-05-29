@@ -18,7 +18,7 @@
     </script>
     <meta
       name="description"
-      content="Analiză automată a contractelor de microcreditare din Moldova: află dacă ai fost taxat cu dobânzi, comisioane sau clauze nelegale."
+      content="Analiză automată a contractelor de microcreditare din Moldova: află dacă ai fost taxat cu dobânzi, comisioane sau clauze ilegale."
     />
     <link
       rel="preload"
@@ -905,6 +905,33 @@
         font-weight: var(--weight-bold);
         color: var(--accent-text);
       }
+      .control__input {
+        width: 9rem;
+        padding: 0.4rem 0.65rem;
+        text-align: right;
+        font-family: var(--font-mono);
+        font-size: var(--text-lg);
+        font-weight: var(--weight-bold);
+        color: var(--accent-text);
+        background-color: var(--color-surface-sunken);
+        border: 1px solid var(--color-border-soft);
+        border-radius: var(--radius-sm);
+        appearance: textfield;
+        -moz-appearance: textfield;
+        transition:
+          border-color var(--transition-fast),
+          box-shadow var(--transition-fast);
+      }
+      .control__input::-webkit-outer-spin-button,
+      .control__input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      .control__input:focus-visible {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px var(--accent-ring);
+      }
       .range {
         appearance: none;
         -webkit-appearance: none;
@@ -1178,7 +1205,7 @@
                 Banii <span class="hero__accent">plătiți în plus</span> la microcredite pot fi recuperați.
               </h1>
               <p class="hero__subhead">
-                Comisioanele ascunse și clauzele abuzive din contractele de microcreditare moldovenești sunt nelegale. Folosește calculatorul pentru a estima suma care poate fi recuperată.
+                Comisioanele ascunse și clauzele abuzive din contractele de microcreditare moldovenești sunt ilegale. Folosește calculatorul pentru a estima suma care poate fi recuperată.
               </p>
               <p class="hero__legal">
                 <span class="hero__legal-mark" aria-hidden="true">
@@ -1338,42 +1365,62 @@
               <div class="control">
                 <div class="control__row">
                   <label for="loan-range" class="control__label">Suma împrumutată (MDL)</label>
-                  <output id="loan-value" class="control__value" for="loan-range">10.000</output>
+                  <input
+                    id="loan-input"
+                    class="control__input"
+                    type="number"
+                    inputmode="numeric"
+                    min="1000"
+                    max="300000"
+                    step="100"
+                    value="10000"
+                    aria-label="Suma împrumutată în MDL"
+                  />
                 </div>
                 <input
                   id="loan-range"
                   class="range"
                   type="range"
                   min="1000"
-                  max="50000"
+                  max="300000"
                   step="500"
                   value="10000"
                   aria-valuetext="10.000 lei împrumutați"
                 />
                 <div class="control__scale">
-                  <span>1k</span>
-                  <span>50k</span>
+                  <span>1.000</span>
+                  <span id="loan-scale-max">300.000</span>
                 </div>
               </div>
 
               <div class="control">
                 <div class="control__row">
                   <label for="paid-range" class="control__label">Suma plătită total (MDL)</label>
-                  <output id="paid-value" class="control__value" for="paid-range">22.000</output>
+                  <input
+                    id="paid-input"
+                    class="control__input"
+                    type="number"
+                    inputmode="numeric"
+                    min="1000"
+                    max="900000"
+                    step="100"
+                    value="22000"
+                    aria-label="Suma plătită total în MDL"
+                  />
                 </div>
                 <input
                   id="paid-range"
                   class="range"
                   type="range"
                   min="1000"
-                  max="100000"
+                  max="900000"
                   step="500"
                   value="22000"
                   aria-valuetext="22.000 lei plătiți"
                 />
                 <div class="control__scale">
-                  <span>1k</span>
-                  <span>100k</span>
+                  <span>1.000</span>
+                  <span id="paid-scale-max">900.000</span>
                 </div>
               </div>
 
@@ -1498,16 +1545,31 @@
 
         // ---------- Estimator ----------
         var COST_CAP_MULTIPLIER = { bank: 0.5, ifn: 1.2, p2p: 1.5 };
+        var LIMITS = {
+          bank: { loanMax: 50000, paidMax: 120000 },
+          ifn: { loanMax: 300000, paidMax: 900000 },
+          p2p: { loanMax: 100000, paidMax: 300000 },
+        };
+        var MIN_VALUE = 1000;
         var formatter = new Intl.NumberFormat('ro-MD', { maximumFractionDigits: 0 });
 
         function formatMDL(n) {
           return formatter.format(Math.round(n));
         }
 
+        function clamp(value, min, max) {
+          if (!isFinite(value)) return min;
+          if (value < min) return min;
+          if (value > max) return max;
+          return value;
+        }
+
         var loanRange = document.getElementById('loan-range');
         var paidRange = document.getElementById('paid-range');
-        var loanValue = document.getElementById('loan-value');
-        var paidValue = document.getElementById('paid-value');
+        var loanInput = document.getElementById('loan-input');
+        var paidInput = document.getElementById('paid-input');
+        var loanScaleMax = document.getElementById('loan-scale-max');
+        var paidScaleMax = document.getElementById('paid-scale-max');
         var resultNumber = document.getElementById('result-number');
         var lenderRow = document.getElementById('lender-row');
         var lenderButtons = lenderRow ? Array.prototype.slice.call(lenderRow.querySelectorAll('[data-lender]')) : [];
@@ -1541,21 +1603,77 @@
           resultNumber.textContent = formatMDL(recovery);
         }
 
-        function bindRange(input, output, valuetextSuffix) {
-          if (!input) return;
-          var update = function () {
-            updateRangeFill(input);
-            var formatted = formatMDL(Number(input.value));
-            if (output) output.textContent = formatted;
-            input.setAttribute('aria-valuetext', formatted + ' ' + valuetextSuffix);
-            recompute();
-          };
-          input.addEventListener('input', update);
-          update();
+        // Keep slider + number input + aria-valuetext + filled-bar in sync.
+        function syncPair(range, input, suffix) {
+          if (!range || !input) return;
+          var value = Number(range.value);
+          range.value = String(value);
+          input.value = String(value);
+          updateRangeFill(range);
+          range.setAttribute('aria-valuetext', formatMDL(value) + ' ' + suffix);
         }
 
-        bindRange(loanRange, loanValue, 'lei împrumutați');
-        bindRange(paidRange, paidValue, 'lei plătiți');
+        function setValue(range, input, raw, suffix) {
+          var max = Number(range.max);
+          var min = Number(range.min);
+          var clamped = clamp(Math.round(raw), min, max);
+          range.value = String(clamped);
+          input.value = String(clamped);
+          updateRangeFill(range);
+          range.setAttribute('aria-valuetext', formatMDL(clamped) + ' ' + suffix);
+          recompute();
+        }
+
+        function bindControl(range, input, suffix) {
+          if (!range || !input) return;
+          range.addEventListener('input', function () {
+            input.value = range.value;
+            updateRangeFill(range);
+            range.setAttribute('aria-valuetext', formatMDL(Number(range.value)) + ' ' + suffix);
+            recompute();
+          });
+          // Live-sync while typing; do not clamp until blur so users can type past the current max
+          // (the lender tab change will set a wider max if needed).
+          input.addEventListener('input', function () {
+            var raw = Number(input.value);
+            if (!isFinite(raw)) return;
+            var max = Number(range.max);
+            var min = Number(range.min);
+            if (raw < min || raw > max) {
+              // Out of range: update result but don't move the slider thumb past its track.
+              range.value = String(clamp(raw, min, max));
+            } else {
+              range.value = String(raw);
+            }
+            updateRangeFill(range);
+            range.setAttribute('aria-valuetext', formatMDL(raw) + ' ' + suffix);
+            recompute();
+          });
+          input.addEventListener('blur', function () {
+            var raw = Number(input.value);
+            if (!isFinite(raw)) raw = Number(range.value);
+            setValue(range, input, raw, suffix);
+          });
+          syncPair(range, input, suffix);
+        }
+
+        function applyLenderLimits() {
+          var lender = selectedLender();
+          var limits = LIMITS[lender];
+          if (!limits || !loanRange || !paidRange || !loanInput || !paidInput) return;
+          loanRange.max = String(limits.loanMax);
+          loanInput.max = String(limits.loanMax);
+          paidRange.max = String(limits.paidMax);
+          paidInput.max = String(limits.paidMax);
+          if (loanScaleMax) loanScaleMax.textContent = formatMDL(limits.loanMax);
+          if (paidScaleMax) paidScaleMax.textContent = formatMDL(limits.paidMax);
+          // Clamp current values if they exceed the new max.
+          setValue(loanRange, loanInput, Number(loanInput.value), 'lei împrumutați');
+          setValue(paidRange, paidInput, Number(paidInput.value), 'lei plătiți');
+        }
+
+        bindControl(loanRange, loanInput, 'lei împrumutați');
+        bindControl(paidRange, paidInput, 'lei plătiți');
 
         function selectLender(index) {
           if (!lenderButtons.length) return;
@@ -1565,7 +1683,7 @@
             btn.setAttribute('aria-checked', checked ? 'true' : 'false');
             btn.setAttribute('tabindex', checked ? '0' : '-1');
           });
-          recompute();
+          applyLenderLimits();
         }
 
         lenderButtons.forEach(function (btn, i) {
@@ -1584,6 +1702,7 @@
           });
         });
 
+        applyLenderLimits();
         recompute();
       })();
     </script>
