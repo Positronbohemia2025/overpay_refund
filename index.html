@@ -275,15 +275,14 @@
         position: sticky;
         top: 0;
         z-index: 20;
-        background-color: color-mix(in srgb, var(--color-bg) 85%, transparent);
-        transition:
-          background-color var(--transition-base),
-          box-shadow var(--transition-base);
+        background-color: var(--color-bg);
+        transition: box-shadow var(--transition-base);
       }
       .header.is-scrolled {
-        background-color: color-mix(in srgb, var(--color-bg) 96%, transparent);
         box-shadow: 0 1px 0 var(--color-border-soft);
-        backdrop-filter: saturate(140%) blur(10px);
+      }
+      body.menu-open .header {
+        background-color: var(--color-surface);
       }
       .header__inner {
         max-width: var(--content-max);
@@ -345,15 +344,24 @@
         border-radius: var(--radius-sm);
       }
       .mobile-panel {
-        padding: var(--space-4) var(--space-6) var(--space-6);
-        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
         flex-direction: column;
         gap: var(--space-4);
+        padding: calc(var(--space-4) + 4rem) var(--space-6) var(--space-6);
         background-color: var(--color-surface);
-        box-shadow: 0 1px 0 var(--color-border-soft) inset;
+        box-shadow: var(--shadow-lg);
+        transform: translateY(-100%);
+        transition: transform var(--transition-base);
+        pointer-events: none;
+        z-index: 15;
       }
       .mobile-panel.is-open {
-        display: flex;
+        transform: translateY(0);
+        pointer-events: auto;
       }
       .mobile-panel__nav {
         display: flex;
@@ -1163,10 +1171,19 @@
           gap: var(--space-5);
           padding-bottom: var(--space-4);
         }
+        .control__row {
+          flex-wrap: nowrap;
+          align-items: center;
+        }
+        .control__label {
+          flex: 1 1 0;
+        }
         .control__input {
-          font-size: var(--text-base);
-          padding: 0.35rem 0.55rem;
-          flex-basis: 7rem;
+          flex: 0 0 auto;
+          width: 5.5rem;
+          min-width: 0;
+          font-size: var(--text-sm);
+          padding: 0.3rem 0.55rem;
         }
         .lender-group__row {
           flex-direction: column;
@@ -1226,18 +1243,6 @@
 
     <header class="header" role="banner" id="site-header">
       <div class="header__inner">
-        <a href="#hero" class="brand" aria-label="overpay">
-          <span class="brand__mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 3v18" />
-              <path d="M5 8h14" />
-              <path d="M5 8l-3 7a4 4 0 0 0 8 0z" />
-              <path d="M19 8l-3 7a4 4 0 0 0 8 0z" />
-            </svg>
-          </span>
-          <span class="brand__text">overpay</span>
-        </a>
-
         <nav class="header__nav" data-i18n-attr="aria-label:landmark.main" aria-label="Conținut principal">
           <a href="#features" class="nav-link" data-i18n="nav.features">Ce identifici</a>
           <a href="#estimator" class="nav-link" data-i18n="nav.estimator">Estimator</a>
@@ -1329,9 +1334,10 @@
           </svg>
         </button>
       </div>
+    </header>
 
-      <div class="mobile-panel" id="mobile-panel">
-        <nav class="mobile-panel__nav" data-i18n-attr="aria-label:landmark.main" aria-label="Conținut principal">
+    <div class="mobile-panel" id="mobile-panel">
+      <nav class="mobile-panel__nav" data-i18n-attr="aria-label:landmark.main" aria-label="Conținut principal">
           <a href="#features" class="nav-link" data-mobile-close data-i18n="nav.features">Ce identifici</a>
           <a href="#estimator" class="nav-link" data-mobile-close data-i18n="nav.estimator">Estimator</a>
         </nav>
@@ -1399,9 +1405,8 @@
             <path d="M17.66 6.34l1.41-1.41" />
           </svg>
         </button>
-        </div>
       </div>
-    </header>
+    </div>
 
     <main id="main-content" aria-label="Conținut principal">
       <!-- Hero -->
@@ -2001,6 +2006,7 @@
           menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
           menuToggle.setAttribute('aria-label', open ? dict['menu.close'] : dict['menu.open']);
           mobilePanel.classList.toggle('is-open', open);
+          document.body.classList.toggle('menu-open', open);
           if (menuIconOpen) menuIconOpen.style.display = open ? 'none' : 'block';
           if (menuIconClose) menuIconClose.style.display = open ? 'block' : 'none';
         }
