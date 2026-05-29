@@ -18,7 +18,7 @@
     </script>
     <meta
       name="description"
-      content="Analiză automată a contractelor de microcreditare din Moldova: află dacă ai fost taxat cu dobânzi, comisioane sau clauze ilegale."
+      content="Calculator gratuit pentru sumele care pot fi recuperate din contracte de microcreditare abuzive în Moldova, conform Legii nr. 1/2018."
     />
     <link
       rel="preload"
@@ -27,7 +27,7 @@
       type="font/woff2"
       crossorigin
     />
-    <title>Verifică-ți contractul de credit</title>
+    <title>overpay — estimator pentru sume plătite în plus la microcredite</title>
     <style>
       /* ---------- Fonts (self-hosted Inter; gracefully falls back to system) ---------- */
       @font-face {
@@ -1043,11 +1043,99 @@
         font-weight: var(--weight-bold);
         color: var(--accent-text);
       }
+      .result__context {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: var(--space-4);
+        margin: 0;
+        font-size: var(--text-xs);
+        color: var(--color-text-muted);
+      }
+      .result__context-item {
+        display: inline-flex;
+        gap: 0.4em;
+        font-family: var(--font-mono);
+      }
+      .result__context-label {
+        color: var(--color-text-subtle);
+      }
+      .result__context-value {
+        color: var(--color-text);
+        font-weight: var(--weight-semibold);
+      }
       .result__disclaimer {
         font-size: var(--text-xs);
         color: var(--color-text-muted);
         margin: 0 auto;
         max-width: 30ch;
+      }
+      .estimator__details {
+        max-width: 56ch;
+        margin: var(--space-6) auto 0;
+        padding: 0 var(--space-2);
+      }
+      .estimator__details > summary {
+        cursor: pointer;
+        font-size: var(--text-sm);
+        font-weight: var(--weight-semibold);
+        color: var(--accent-text);
+        list-style: none;
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+      }
+      .estimator__details > summary::-webkit-details-marker {
+        display: none;
+      }
+      .estimator__details > summary::before {
+        content: '+';
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.25rem;
+        height: 1.25rem;
+        border-radius: 50%;
+        background-color: var(--accent-soft);
+        color: var(--accent-text);
+        font-weight: var(--weight-bold);
+        line-height: 1;
+        transition: transform var(--transition-fast);
+      }
+      .estimator__details[open] > summary::before {
+        content: '−';
+      }
+      .estimator__details-body {
+        margin-top: var(--space-4);
+        padding: var(--space-4) var(--space-5);
+        font-size: var(--text-sm);
+        color: var(--color-text-muted);
+        line-height: var(--leading-normal);
+        background-color: var(--color-surface-sunken);
+        border-radius: var(--radius-md);
+      }
+      .estimator__details-body p {
+        margin: 0;
+      }
+      .estimator__details-body p + p {
+        margin-top: var(--space-3);
+      }
+      .features__bridge {
+        margin: var(--space-7) auto 0;
+        max-width: 60ch;
+        text-align: center;
+        font-size: var(--text-base);
+        color: var(--color-text-muted);
+      }
+      .features__bridge-link {
+        color: var(--accent-text);
+        font-weight: var(--weight-semibold);
+        text-decoration: none;
+      }
+      .features__bridge-link:hover {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+        text-underline-offset: 0.2em;
       }
       @media (max-width: 60rem) {
         .estimator__panel {
@@ -1327,7 +1415,7 @@
               </span>
               <h3 class="feature-card__title">Dobândă peste limita legală</h3>
               <p class="feature-card__body">
-                Costul total al creditului are o limită clară în lege. Dacă ai împrumutat 5.000 MDL, nu trebuie să rambursezi 15.000.
+                Costul total al creditului are o limită clară în lege. Dacă ai împrumutat 5.000 MDL, nu plătești în total mai mult de 10.000.
               </p>
             </article>
 
@@ -1347,6 +1435,10 @@
               </p>
             </article>
           </div>
+
+          <p class="features__bridge">
+            Folosește <a href="#estimator" class="features__bridge-link">calculatorul</a> pentru a estima ce sume pot fi recuperate în cazul tău.
+          </p>
         </div>
       </section>
 
@@ -1404,7 +1496,7 @@
                     min="1000"
                     max="900000"
                     step="100"
-                    value="22000"
+                    value="30000"
                     aria-label="Suma plătită total în MDL"
                   />
                 </div>
@@ -1415,8 +1507,8 @@
                   min="1000"
                   max="900000"
                   step="500"
-                  value="22000"
-                  aria-valuetext="22.000 lei plătiți"
+                  value="30000"
+                  aria-valuetext="30.000 lei plătiți"
                 />
                 <div class="control__scale">
                   <span>1.000</span>
@@ -1440,11 +1532,33 @@
                 <span class="result__number" id="result-number">0</span>
                 <span class="result__suffix">MDL</span>
               </p>
+              <p class="result__context">
+                <span class="result__context-item">
+                  <span class="result__context-label">Plafon legal:</span>
+                  <span class="result__context-value" id="result-lawful">0</span>
+                </span>
+                <span class="result__context-item">
+                  <span class="result__context-label">Plătit:</span>
+                  <span class="result__context-value" id="result-paid">0</span>
+                </span>
+              </p>
               <p class="result__disclaimer">
                 Estimare orientativă. Recuperarea reală depinde de clauzele specifice ale contractului.
               </p>
             </div>
           </div>
+
+          <details class="estimator__details">
+            <summary>Cum se calculează</summary>
+            <div class="estimator__details-body">
+              <p>
+                Pentru creditele nebancare, <strong>Legea nr. 1/2018, art. 9 alin. (1) lit. e)</strong> stabilește că suma totală a plăților (dobânzi, comisioane, taxe, penalități și dobânzi de întârziere) nu poate depăși suma împrumutată.
+              </p>
+              <p>
+                Plafonul legal afișat este principalul plus costul maxim permis. Diferența dintre suma plătită și acest plafon reprezintă suma care, în principiu, poate fi recuperată. Pentru bănci și împrumuturi între persoane fizice valorile sunt orientative.
+              </p>
+            </div>
+          </details>
         </div>
       </section>
     </main>
@@ -1544,7 +1658,11 @@
         });
 
         // ---------- Estimator ----------
-        var COST_CAP_MULTIPLIER = { bank: 0.5, ifn: 1.2, p2p: 1.5 };
+        // Total cost (interest + fees + penalties) as a multiple of the principal.
+        // IFN = 1.0 per Legea nr. 1/2018 art. 9 alin. (1) lit. e). Bank and P2P
+        // are illustrative — bank consumer credit has no equivalent strict cap,
+        // P2P is largely unregulated; both default to typical-pattern values.
+        var COST_CAP_MULTIPLIER = { bank: 0.5, ifn: 1.0, p2p: 1.5 };
         var LIMITS = {
           bank: { loanMax: 50000, paidMax: 120000 },
           ifn: { loanMax: 300000, paidMax: 900000 },
@@ -1571,6 +1689,8 @@
         var loanScaleMax = document.getElementById('loan-scale-max');
         var paidScaleMax = document.getElementById('paid-scale-max');
         var resultNumber = document.getElementById('result-number');
+        var resultLawful = document.getElementById('result-lawful');
+        var resultPaid = document.getElementById('result-paid');
         var lenderRow = document.getElementById('lender-row');
         var lenderButtons = lenderRow ? Array.prototype.slice.call(lenderRow.querySelectorAll('[data-lender]')) : [];
 
@@ -1601,6 +1721,8 @@
           var lawfulMax = loan * (1 + cap);
           var recovery = Math.max(0, paid - lawfulMax);
           resultNumber.textContent = formatMDL(recovery);
+          if (resultLawful) resultLawful.textContent = formatMDL(lawfulMax) + ' MDL';
+          if (resultPaid) resultPaid.textContent = formatMDL(paid) + ' MDL';
         }
 
         // Keep slider + number input + aria-valuetext + filled-bar in sync.
