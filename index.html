@@ -26,81 +26,11 @@
       name="description"
       content="Calculator gratuit pentru sumele care pot fi recuperate din contracte de microcreditare abuzive în Moldova, conform Legii nr. 1/2018."
     />
-    <link
-      rel="preload"
-      href="fonts/inter-latin-ext-400.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
     <title>overpay — estimator pentru sume plătite în plus la microcredite</title>
     <style>
-      /* ---------- Fonts (self-hosted Inter; gracefully falls back to system) ---------- */
-      @font-face {
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url('fonts/inter-latin-400.woff2') format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+2000-206F, U+2122, U+2191,
-          U+2193, U+2212;
-      }
-      @font-face {
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: url('fonts/inter-latin-ext-400.woff2') format('woff2');
-        unicode-range: U+0100-02AF, U+0218-021B, U+1E00-1EFF, U+2020-2027;
-      }
-      @font-face {
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 600;
-        font-display: swap;
-        src: url('fonts/inter-latin-600.woff2') format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F;
-      }
-      @font-face {
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 600;
-        font-display: swap;
-        src: url('fonts/inter-latin-ext-600.woff2') format('woff2');
-        unicode-range: U+0100-02AF, U+0218-021B, U+1E00-1EFF;
-      }
-      @font-face {
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url('fonts/inter-latin-700.woff2') format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F;
-      }
-      @font-face {
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: url('fonts/inter-latin-ext-700.woff2') format('woff2');
-        unicode-range: U+0100-02AF, U+0218-021B, U+1E00-1EFF;
-      }
-      @font-face {
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 800;
-        font-display: swap;
-        src: url('fonts/inter-latin-800.woff2') format('woff2');
-        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+2000-206F;
-      }
-      @font-face {
-        font-family: Inter;
-        font-style: normal;
-        font-weight: 800;
-        font-display: swap;
-        src: url('fonts/inter-latin-ext-800.woff2') format('woff2');
-        unicode-range: U+0100-02AF, U+0218-021B, U+1E00-1EFF;
-      }
+      /* Fonts: the --font-body stack falls through to locally-installed Inter,
+         then to system humanist-sans. To self-host Inter, drop the woff2 files
+         into ./fonts/ and reintroduce @font-face blocks (see git history). */
 
       /* ---------- Design tokens ---------- */
       :root {
@@ -433,6 +363,13 @@
       .mobile-panel .nav-link {
         font-size: var(--text-base);
       }
+      .mobile-panel__bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-3);
+        margin-top: var(--space-2);
+      }
       @media (max-width: 60rem) {
         .header__nav,
         .header__actions {
@@ -469,35 +406,60 @@
       [data-theme='dark'] .theme-toggle .icon-moon { display: none; }
       [data-theme='dark'] .theme-toggle .icon-sun { display: block; }
 
-      .lang-toggle {
+      .lang-switch {
+        position: relative;
+        display: inline-flex;
+        align-self: center;
+        gap: 2px;
+        height: 2.5rem;
+        padding: 3px;
+        background-color: var(--color-surface-sunken);
+        border-radius: var(--radius-sm);
+        box-shadow: inset 0 0 0 1px var(--color-border-soft);
+      }
+      .lang-switch__thumb {
+        position: absolute;
+        top: 3px;
+        bottom: 3px;
+        left: 3px;
+        width: calc((100% - 8px) / 2);
+        background-color: var(--color-surface);
+        border-radius: calc(var(--radius-sm) - 3px);
+        box-shadow: var(--shadow-sm);
+        transition: transform var(--transition-base);
+        pointer-events: none;
+      }
+      .lang-switch[data-active='ru'] .lang-switch__thumb {
+        transform: translateX(calc(100% + 2px));
+      }
+      .lang-switch__opt {
+        position: relative;
+        z-index: 1;
+        flex: 1 1 0;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        gap: var(--space-2);
-        height: 2.5rem;
-        padding: 0 var(--space-3);
-        border-radius: var(--radius-sm);
+        gap: 6px;
+        padding: 0 8px;
+        border-radius: calc(var(--radius-sm) - 3px);
         background-color: transparent;
         color: var(--color-text-muted);
-        box-shadow: inset 0 0 0 1px var(--color-border-soft);
-        cursor: pointer;
         font-size: var(--text-xs);
         font-weight: var(--weight-semibold);
         letter-spacing: 0.04em;
-        transition:
-          background-color var(--transition-fast),
-          color var(--transition-fast),
-          box-shadow var(--transition-fast);
+        cursor: pointer;
+        transition: color var(--transition-fast);
       }
-      .lang-toggle:hover {
-        background-color: var(--color-surface-sunken);
+      .lang-switch__opt:hover {
         color: var(--color-text);
-        box-shadow: inset 0 0 0 1px var(--color-border-strong);
+      }
+      .lang-switch__opt[aria-checked='true'] {
+        color: var(--color-text);
       }
       .lang-flag {
         display: inline-flex;
-        width: 20px;
-        height: 14px;
+        width: 16px;
+        height: 11px;
         border-radius: 2px;
         overflow: hidden;
         box-shadow: 0 0 0 1px var(--color-border-strong);
@@ -507,7 +469,6 @@
         width: 100%;
         height: 100%;
       }
-      .lang-flag[hidden] { display: none; }
       .lang-code {
         font-family: var(--font-mono);
       }
@@ -1283,30 +1244,47 @@
         </nav>
 
         <div class="header__actions">
-          <button
-            type="button"
-            class="lang-toggle"
-            id="lang-toggle"
-            data-i18n-attr="aria-label:lang.switch;title:lang.switch"
+          <div
+            class="lang-switch"
+            role="radiogroup"
+            data-active="ro"
+            data-i18n-attr="aria-label:lang.switch"
             aria-label="Schimbă limba"
-            title="Schimbă limba"
           >
-            <span class="lang-flag" data-lang-flag="ro">
-              <svg viewBox="0 0 9 6" preserveAspectRatio="none" aria-hidden="true">
-                <rect width="3" height="6" fill="#0046ae" />
-                <rect x="3" width="3" height="6" fill="#ffd200" />
-                <rect x="6" width="3" height="6" fill="#cc092f" />
-              </svg>
-            </span>
-            <span class="lang-flag" data-lang-flag="ru" hidden>
-              <svg viewBox="0 0 9 6" preserveAspectRatio="none" aria-hidden="true">
-                <rect width="9" height="2" fill="#fff" />
-                <rect y="2" width="9" height="2" fill="#0039a6" />
-                <rect y="4" width="9" height="2" fill="#d52b1e" />
-              </svg>
-            </span>
-            <span class="lang-code" data-lang-code>RO</span>
-          </button>
+            <span class="lang-switch__thumb" aria-hidden="true"></span>
+            <button
+              type="button"
+              class="lang-switch__opt"
+              data-lang-option="ro"
+              role="radio"
+              aria-checked="true"
+            >
+              <span class="lang-flag">
+                <svg viewBox="0 0 9 6" preserveAspectRatio="none" aria-hidden="true">
+                  <rect width="3" height="6" fill="#0046ae" />
+                  <rect x="3" width="3" height="6" fill="#ffd200" />
+                  <rect x="6" width="3" height="6" fill="#cc092f" />
+                </svg>
+              </span>
+              <span class="lang-code">RO</span>
+            </button>
+            <button
+              type="button"
+              class="lang-switch__opt"
+              data-lang-option="ru"
+              role="radio"
+              aria-checked="false"
+            >
+              <span class="lang-flag">
+                <svg viewBox="0 0 9 6" preserveAspectRatio="none" aria-hidden="true">
+                  <rect width="9" height="2" fill="#fff" />
+                  <rect y="2" width="9" height="2" fill="#0039a6" />
+                  <rect y="4" width="9" height="2" fill="#d52b1e" />
+                </svg>
+              </span>
+              <span class="lang-code">RU</span>
+            </button>
+          </div>
           <button
             type="button"
             class="theme-toggle"
@@ -1357,37 +1335,55 @@
           <a href="#features" class="nav-link" data-mobile-close data-i18n="nav.features">Ce identifici</a>
           <a href="#estimator" class="nav-link" data-mobile-close data-i18n="nav.estimator">Estimator</a>
         </nav>
-        <button
-          type="button"
-          class="lang-toggle"
-          id="lang-toggle-mobile"
-          data-i18n-attr="aria-label:lang.switch;title:lang.switch"
-          aria-label="Schimbă limba"
-          title="Schimbă limba"
-        >
-          <span class="lang-flag" data-lang-flag="ro">
-            <svg viewBox="0 0 9 6" preserveAspectRatio="none" aria-hidden="true">
-              <rect width="3" height="6" fill="#0046ae" />
-              <rect x="3" width="3" height="6" fill="#ffd200" />
-              <rect x="6" width="3" height="6" fill="#cc092f" />
-            </svg>
-          </span>
-          <span class="lang-flag" data-lang-flag="ru" hidden>
-            <svg viewBox="0 0 9 6" preserveAspectRatio="none" aria-hidden="true">
-              <rect width="9" height="2" fill="#fff" />
-              <rect y="2" width="9" height="2" fill="#0039a6" />
-              <rect y="4" width="9" height="2" fill="#d52b1e" />
-            </svg>
-          </span>
-          <span class="lang-code" data-lang-code>RO</span>
-        </button>
-        <button
-          type="button"
-          class="theme-toggle"
-          id="theme-toggle-mobile"
-          aria-label="Activează modul întunecat"
-          title="Activează modul întunecat"
-        >
+        <div class="mobile-panel__bottom">
+          <div
+            class="lang-switch"
+            role="radiogroup"
+            data-active="ro"
+            data-i18n-attr="aria-label:lang.switch"
+            aria-label="Schimbă limba"
+          >
+            <span class="lang-switch__thumb" aria-hidden="true"></span>
+            <button
+              type="button"
+              class="lang-switch__opt"
+              data-lang-option="ro"
+              role="radio"
+              aria-checked="true"
+            >
+              <span class="lang-flag">
+                <svg viewBox="0 0 9 6" preserveAspectRatio="none" aria-hidden="true">
+                  <rect width="3" height="6" fill="#0046ae" />
+                  <rect x="3" width="3" height="6" fill="#ffd200" />
+                  <rect x="6" width="3" height="6" fill="#cc092f" />
+                </svg>
+              </span>
+              <span class="lang-code">RO</span>
+            </button>
+            <button
+              type="button"
+              class="lang-switch__opt"
+              data-lang-option="ru"
+              role="radio"
+              aria-checked="false"
+            >
+              <span class="lang-flag">
+                <svg viewBox="0 0 9 6" preserveAspectRatio="none" aria-hidden="true">
+                  <rect width="9" height="2" fill="#fff" />
+                  <rect y="2" width="9" height="2" fill="#0039a6" />
+                  <rect y="4" width="9" height="2" fill="#d52b1e" />
+                </svg>
+              </span>
+              <span class="lang-code">RU</span>
+            </button>
+          </div>
+          <button
+            type="button"
+            class="theme-toggle"
+            id="theme-toggle-mobile"
+            aria-label="Activează modul întunecat"
+            title="Activează modul întunecat"
+          >
           <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
           </svg>
@@ -1403,6 +1399,7 @@
             <path d="M17.66 6.34l1.41-1.41" />
           </svg>
         </button>
+        </div>
       </div>
     </header>
 
@@ -1907,12 +1904,12 @@
             menuToggle.setAttribute('aria-label', open ? dict['menu.close'] : dict['menu.open']);
           }
 
-          // Language toggle pill: show CURRENT lang's flag + code.
-          document.querySelectorAll('[data-lang-flag]').forEach(function (el) {
-            el.hidden = el.getAttribute('data-lang-flag') !== lang;
+          // Language switch: slide the thumb to the active option, mark it.
+          document.querySelectorAll('.lang-switch').forEach(function (el) {
+            el.dataset.active = lang;
           });
-          document.querySelectorAll('[data-lang-code]').forEach(function (el) {
-            el.textContent = lang.toUpperCase();
+          document.querySelectorAll('[data-lang-option]').forEach(function (el) {
+            el.setAttribute('aria-checked', el.getAttribute('data-lang-option') === lang ? 'true' : 'false');
           });
 
           // Re-render the estimator aria-valuetexts (suffix changed with the lang).
@@ -1962,9 +1959,9 @@
           });
         });
 
-        document.querySelectorAll('.lang-toggle').forEach(function (btn) {
+        document.querySelectorAll('[data-lang-option]').forEach(function (btn) {
           btn.addEventListener('click', function () {
-            applyLang(nextLang());
+            applyLang(btn.getAttribute('data-lang-option'));
           });
         });
 
