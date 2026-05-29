@@ -574,6 +574,32 @@
         max-width: 52ch;
         line-height: var(--leading-normal);
       }
+      .hero__legal {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--space-3);
+        max-width: 56ch;
+        padding: var(--space-3) 0;
+        font-size: var(--text-sm);
+        color: var(--color-text-muted);
+        line-height: var(--leading-snug);
+        border-top: 1px solid var(--color-border-soft);
+      }
+      .hero__legal-mark {
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: var(--radius-sm);
+        background-color: var(--accent-soft);
+        color: var(--accent-text);
+      }
+      .hero__legal-law {
+        color: var(--accent-text);
+        font-weight: var(--weight-semibold);
+      }
       .hero__ctas {
         display: flex;
         flex-wrap: wrap;
@@ -1154,6 +1180,16 @@
               <p class="hero__subhead">
                 Comisioanele ascunse și clauzele abuzive din contractele de microcreditare moldovenești sunt nelegale. Folosește calculatorul pentru a estima suma care poate fi recuperată.
               </p>
+              <p class="hero__legal">
+                <span class="hero__legal-mark" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                </span>
+                <span>
+                  Conform <span class="hero__legal-law">Legii nr. 1/2018, art. 9</span> — costul total al unui credit nebancar nu poate depăși suma împrumutată.
+                </span>
+              </p>
               <div class="hero__ctas">
                 <a class="btn btn--primary" href="#estimator">
                   <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1204,7 +1240,7 @@
                   </p>
                   <div class="preview__quote-meta">
                     <span class="preview__quote-flag">Clauză abuzivă detectată</span>
-                    <span class="preview__quote-law">Invalidă conform Legii nr. 202</span>
+                    <span class="preview__quote-law">Plafon depășit · Legea nr. 1/2018, art. 9</span>
                   </div>
                 </div>
 
