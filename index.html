@@ -16,6 +16,17 @@
         }
         try {
           var l = localStorage.getItem('overpay.lang');
+          if (l !== 'ro' && l !== 'ru') {
+            /* No saved choice — fall back to the browser's preferred language. */
+            var navs = navigator.languages || [navigator.language || navigator.userLanguage || ''];
+            for (var i = 0; i < navs.length; i++) {
+              var c = (navs[i] || '').toLowerCase().slice(0, 2);
+              if (c === 'ro' || c === 'ru') {
+                l = c;
+                break;
+              }
+            }
+          }
           if (l === 'ro' || l === 'ru') document.documentElement.lang = l;
         } catch (e) {
           /* keep default lang */
@@ -27,6 +38,17 @@
       content="Calculator gratuit pentru sumele care pot fi recuperate din contracte de microcreditare abuzive în Moldova, conform Legii nr. 1/2018."
     />
     <title>overpay — estimator pentru sume plătite în plus la microcredite</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XYJGX9CZ9Y"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-XYJGX9CZ9Y');
+    </script>
     <style>
       /* Fonts: the --font-body stack falls through to locally-installed Inter,
          then to system humanist-sans. To self-host Inter, drop the woff2 files
@@ -1970,14 +1992,38 @@
           });
         });
 
-        // Initial lang application (after both toggles wired so labels propagate).
-        var storedLang = null;
-        try {
-          storedLang = localStorage.getItem(LANG_KEY);
-        } catch (e) {
-          /* ignore */
+        // Pick the visitor's browser language, if it matches a supported one.
+        function detectBrowserLang() {
+          try {
+            var navs =
+              navigator.languages && navigator.languages.length
+                ? navigator.languages
+                : [navigator.language || navigator.userLanguage || ''];
+            for (var i = 0; i < navs.length; i++) {
+              var code = (navs[i] || '').toLowerCase().slice(0, 2);
+              if (SUPPORTED_LANGS.indexOf(code) >= 0) return code;
+            }
+          } catch (e) {
+            /* navigator unavailable */
+          }
+          return null;
         }
-        applyLang(SUPPORTED_LANGS.indexOf(storedLang) >= 0 ? storedLang : 'ro');
+
+        // Resolve the language to use: a saved choice wins, otherwise detect from
+        // the browser, otherwise fall back to Romanian.
+        function preferredLang() {
+          var stored = null;
+          try {
+            stored = localStorage.getItem(LANG_KEY);
+          } catch (e) {
+            /* ignore */
+          }
+          if (SUPPORTED_LANGS.indexOf(stored) >= 0) return stored;
+          return detectBrowserLang() || 'ro';
+        }
+
+        // Initial lang application (after both toggles wired so labels propagate).
+        applyLang(preferredLang());
 
         // ---------- Sticky header shadow on scroll ----------
         var header = document.getElementById('site-header');
